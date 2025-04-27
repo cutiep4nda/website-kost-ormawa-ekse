@@ -62,3 +62,6 @@ git commit -m "Keterangan"
 
 ## NOTE
 - Pada repository GitHub ini, hanya ada 1 branch (main)
+
+<hr>
+<a href="https://docs.google.com/presentation/d/1-A5a0rSfTO_NLigLYPvgFWed2aNYlxRJkXBggGFYAV0/edit#slide=id.p">Link database schema</a>
