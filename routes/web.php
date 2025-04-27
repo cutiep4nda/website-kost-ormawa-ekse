@@ -9,3 +9,7 @@ use Inertia\Inertia;
 Route::get('home', function () {
     return Inertia::render('Errors/404');
 });
+
+Route::get('home', function () {
+   return Inertia::render("Test");
+});
