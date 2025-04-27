@@ -23,6 +23,11 @@ git checkout <nama-branch>
 ```
 Sangat disarankan membuat branch baru di local computer ketika ingin melakukan kerja. Hal ini agar kode dari branch 'main' akan di-'copy' ke branch baru yang telah dibuat (ketika membuat branch baru, seluruh kode akan otomatis di-'copy')
 
+delete branch
+```
+git branch -d <nama-branch>
+```
+
 ### Git - Merge
 Merging atau menggabungkan dua buah kode dari branch berbeda
 ```
