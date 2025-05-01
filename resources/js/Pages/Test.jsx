@@ -6,6 +6,7 @@ import { IoMdArrowRoundBack } from "react-icons/io";
 export default function Test() {
     return (
         <div className="text-red-600 text-4xl">
+            <p>TEST</p>
             <p className="text-7xl text-biru">
                 <LuTextSearch className="hover:text-primary transition duration-300" />
                 <FaLocationDot />
