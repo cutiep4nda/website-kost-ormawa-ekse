@@ -16,3 +16,124 @@
     --color-birutua1: #102542;
     --color-birutua2: #003459;
 }
+
+
+
+/* Pastikan body tidak bisa discroll selama preloader */
+body.loading {
+  overflow: hidden;
+}
+
+/* Class yang ditambahkan setelah aplikasi dimuat */
+html.app-loaded {
+  --app-loaded: true;
+}
+
+/* Animasi transisi untuk semua halaman */
+.page-transition-enter {
+  opacity: 0;
+}
+
+.page-transition-enter-active {
+  opacity: 1;
+  transition: opacity 300ms;
+}
+
+.page-transition-exit {
+  opacity: 1;
+}
+
+.page-transition-exit-active {
+  opacity: 0;
+  transition: opacity 300ms;
+}
+.card-hover-effect {
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card-hover-effect:hover {
+  transform: translateY(-5px);
+}
+
+.size-button {
+  @apply px-3 py-2 rounded-lg text-sm font-medium transition-colors duration-200;
+}
+
+.quantity-button {
+  @apply w-10 h-10 rounded-lg border bg-white hover:bg-gray-50 transition-colors 
+         flex items-center justify-center text-lg font-medium;
+}
+
+/* Custom Arrow Styling */
+.slick-prev,
+.slick-next {
+  width: 40px;
+  height: 40px;
+  transition: opacity 0.3s ease;
+}
+.slides-imageslide > .imageslide {
+  font-family: Montserrat;
+}
+
+.slides-imageslide > .blank, 
+.slides-imageslide > .imageslide {
+  margin-right: 0;
+  scroll-snap-align: start;
+  flex-shrink: 0;
+  transform-origin: center center;
+  transition: transform .5s;
+  position: relative;
+  text-align: left;
+}
+.slick-prev:hover,
+.slick-next:hover {
+  opacity: 0.8;
+}
+
+.slick-prev:before,
+.slick-next:before {
+  display: none; /* Menghilangkan default arrow */
+}
+
+/* Custom carousel styling */
+.slick-slide:not(.slick-center) {
+  opacity: 0.5;
+  transform: scale(0.85);
+  border-radius: 20px;
+  transition: all 0.3s ease;
+}
+
+.slick-slide.slick-center {
+  opacity: 1;
+  transform: scale(1);
+  border-radius: 20px;
+}
+
+.slick-slide {
+  @apply transition-all duration-500 ease-out;
+}
+
+.slick-center .absolute {
+  transform: scale(1) !important;
+  z-index: 20;
+}
+
+.slick-slide:not(.slick-center) .absolute {
+  transform: scale(0.85) translateX(25%);
+  opacity: 0.8;
+  z-index: 10;
+}
+
+.slick-slide:not(.slick-center):nth-child(odd) .absolute {
+  transform: scale(0.85) translateX(-25%);
+}
+
+/* Hide scrollbar */
+.scrollbar-hidden::-webkit-scrollbar {
+  display: none;
+}
+
+.scrollbar-hidden {
+  -ms-overflow-style: none;
+  scrollbar-width: none;  /* Firefox */
+}
