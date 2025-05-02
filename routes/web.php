@@ -6,10 +6,8 @@ use Inertia\Inertia;
 // Route::get('/', function () {
 //     return view('app');
 // });
-Route::get('home', function () {
-    return Inertia::render('Errors/404');
-});
 
-Route::get('home', function () {
-   return Inertia::render("Test");
+
+Route::get('/', function () {
+   return Inertia::render('Home');
 });
