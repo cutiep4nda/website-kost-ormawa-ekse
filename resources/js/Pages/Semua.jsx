@@ -1,0 +1,34 @@
+import React from "react";
+import Navbar from "../Components/Navbar";
+import CardKos from "../Components/CardKos";
+
+import { IoMdArrowRoundForward } from "react-icons/io";
+import { IoMdArrowRoundBack } from "react-icons/io";
+import { FaLocationDot } from "react-icons/fa6";
+import { Link } from "@inertiajs/react";
+
+export default function Semua() {
+    return (
+        <div>
+            <div className="Desktop">
+                <Navbar></Navbar>
+                <div className="px-10 font-bold text-3xl mt-4 ">
+                    Pilihan Lainnya Di ....
+                </div>
+                <div className="grid lg:grid-cols-2 grid-cols-1 px-10 py-6 gap-8 ">
+                    <CardKos></CardKos>
+                    <CardKos></CardKos>
+                    <CardKos></CardKos>
+                    <CardKos></CardKos>
+                    <CardKos></CardKos>
+                    <CardKos></CardKos>
+                    <CardKos></CardKos>
+                    <CardKos></CardKos>
+                </div>
+                <div className="flex justify-center">
+                    <p>Pokoknya paginasi</p>
+                </div>
+            </div>
+        </div>
+    );
+}
