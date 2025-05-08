@@ -46,6 +46,10 @@ Melakukan penarikan perubahan yang ada pada branch main di repository GitHub mel
 ```
 git pull origin main
 ```
+melakukan rebase pada git pull
+```
+git pull --rebase origin main
+```
 
 ### Git - Init
 Digunakan untuk menginisiasi direktori saat ini sebagai repository git lokal
@@ -53,6 +57,12 @@ Digunakan untuk menginisiasi direktori saat ini sebagai repository git lokal
 git init
 ```
 (perintah ini tidak perlu dijalankan ketika melakukan git clone)
+
+### Git - Rebase
+Memindahkan commit terakhir ke posisi yang paling terakhir setelah melakukan sesuatu (git pull).
+```
+git rebase 
+```
 
 ### Git - Commit
 Untuk memberikan 'keterangan' ke perubahan pada branch yang aktif saat ini
