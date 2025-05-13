@@ -7,6 +7,9 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Kost extends Model
 {
+    protected $primarykey = "id";
+    protected $table = "kost";
+    protected $fillable = ["daerah_id", "jenis_id", "pemilik_id", "ukuran", "bantal", "kasur", "lemari", "kipas_angin", "km_dalam", "kulkas", "p_motor", "pengurus_kos", "dapur", "wifi", "lainnya", "nama", "harga"];
     public function daerah(): BelongsTo
     {
         return $this->belongsTo(Daerah::class, 'daerah_id');
