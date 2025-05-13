@@ -1,6 +1,7 @@
 import React from "react";
 import CardBiasa from "../Components/CardBiasa";
 import Navbar from "../Components/Navbar";
+import Footer from "../Components/Footer";
 import { Link } from "@inertiajs/react";
 
 export default function Kos() {
@@ -134,9 +135,9 @@ export default function Kos() {
                 </div>
             </div>
 
-            <hr className="my-4 max-w-7xl mx-auto px-10" />
+            <hr className="my-4 max-w-7xl mx-auto px-10 " />
 
-            <div class="px-10 flex flex-col gap- max-w-7xl mx-auto">
+            <div class="px-10 flex flex-col gap- max-w-7xl mx-auto mb-10">
                 <div class="flex justify-between mb-6">
                     <p class="font-bold text-4xl">
                         Kos di daerah yang sama{" "}
@@ -154,6 +155,8 @@ export default function Kos() {
                     <CardBiasa></CardBiasa>
                 </div>
             </div>
+
+            <Footer></Footer>
         </div>
     );
 }

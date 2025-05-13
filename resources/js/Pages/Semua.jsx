@@ -1,6 +1,7 @@
 import React from "react";
 import Navbar from "../Components/Navbar";
 import CardKos from "../Components/CardKos";
+import Footer from "../Components/Footer";
 
 import { IoMdArrowRoundForward } from "react-icons/io";
 import { IoMdArrowRoundBack } from "react-icons/io";
@@ -25,10 +26,12 @@ export default function Semua() {
                     <CardKos></CardKos>
                     <CardKos></CardKos>
                 </div>
-                <div className="flex justify-center">
+                <div className="flex justify-center mb-10">
                     <p>Pokoknya paginasi</p>
                 </div>
             </div>
+
+            <Footer></Footer>
         </div>
     );
 }
