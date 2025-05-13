@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 class Pemilik extends Model
 {
     protected $table = "pemilik";
-    protected $fillable = ["pemilik"];
+    protected $fillable = ["nama_pemilik"];
     public function kost(): HasMany
     {
         return $this->hasMany(Kost::class);

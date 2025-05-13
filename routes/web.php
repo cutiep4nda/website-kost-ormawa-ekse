@@ -23,5 +23,6 @@ Route::get('/login', [AdminController::class, "formLogin"])->name('login');
 Route::post('login', [AdminController::class, "checkLogin"]);
 Route::middleware("auth:admin")->group(function(){
     Route::get('/dashboard', [AdminController::class, "dashboard"])->name("dashboard");
-    Route::get('/add-kost', [AdminController::class, "addKostPage"]);
+    Route::get('/add-kost', [AdminController::class, "addKostPage"])->name('add-kost');
+    Route::post('/add-kost', [AdminController::class, "addKost"]);
 });

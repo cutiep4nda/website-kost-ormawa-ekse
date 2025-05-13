@@ -22,6 +22,7 @@
         <tr>
             <th>No id</th>
             <th>Nama Kost</th>
+            <th>Pemilik</th>
             <th>Aksi</th>
         </tr>
         @foreach ($data as $a)
@@ -29,8 +30,10 @@
                 <td>{{ $a->id }}</td>
                 <td>{{ $a->nama }}</td>
                 <td>
-                    <a href="edit">Edit</a>
                     {{ $a->pemilik->nama_pemilik }}
+                </td>
+                <td>
+                    <a href="edit">Edit</a>
                 </td>
             </tr>
         @endforeach

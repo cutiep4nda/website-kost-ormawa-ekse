@@ -15,5 +15,11 @@ class Jenis extends Seeder
         \App\Models\Jenis::create([
             'jenis' => 'Putra'
         ]);
+        \App\Models\Jenis::create([
+            'jenis' => 'Putri'
+        ]);
+        \App\Models\Jenis::create([
+            'jenis' => 'Campur'
+        ]);
     }
 }
