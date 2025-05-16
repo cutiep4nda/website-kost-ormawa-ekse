@@ -144,6 +144,20 @@
                                 <input type="checkbox" name="kipas_angin" value=1>
                             </td>
                         </tr>
+                        <tr>
+                            <td>Kamar Mandi Dalam</td>
+                            <td>:</td>
+                            <td>
+                                <input type="checkbox" name="km_dalam" value=1>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Meja Belajar</td>
+                            <td>:</td>
+                            <td>
+                                <input type="checkbox" name="meja_belajar" value=1>
+                            </td>
+                        </tr>
                     </table>
                 </td>
             </tr>
@@ -153,10 +167,10 @@
                 <td>
                     <table>
                         <tr>
-                            <td>Kamar Mandi Dalam</td>
+                            <td>Kamar Mandi Luar</td>
                             <td>:</td>
                             <td>
-                                <input type="checkbox" name="km_dalam" value=1>
+                                <input type="checkbox" name="km_luar" value=1>
                             </td>
                         </tr>
                         <tr>

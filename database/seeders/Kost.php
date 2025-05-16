@@ -31,7 +31,10 @@ class Kost extends Seeder
             'wifi' => 1,
             'lainnya' => 'Ini adalah kost terbaik',
             "nama" => "Kost Risbang",
-            'harga' => 1000000
+            'harga' => 1000000,
+            'deskripsi' => "lorem ipsum dolor sit amet",
+            'meja_belajar' => 1,
+            'gambar' => '["images\/gambar-1.jpg", "images\/gambar-2.jpg", "images\/gambar-3.jpg"]'
         ]);
     }
 }

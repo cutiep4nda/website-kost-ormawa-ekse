@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\KostController;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
@@ -26,3 +27,6 @@ Route::middleware("auth:admin")->group(function(){
     Route::get('/add-kost', [AdminController::class, "addKostPage"])->name('add-kost');
     Route::post('/add-kost', [AdminController::class, "addKost"]);
 });
+
+Route::get('/kost/{id}', [KostController::class, "kost"])->name("kost");
+Route::get('/all-kost', [KostController::class, 'allKost'])->name('all-kost');

@@ -27,15 +27,17 @@ return new class extends Migration
             $table->boolean("kasur")->default(0);
             $table->boolean("lemari")->default(0);
             $table->boolean("kipas_angin")->default(0);
+            $table->boolean("meja_belajar")->default(0);
+            $table->boolean("km_dalam")->default(0);
 
             // fasilitas kos
-            $table->boolean("km_dalam")->default(0);
             $table->boolean("kulkas")->default(0);
             $table->boolean("p_motor")->default(0);
             $table->boolean("p_mobil")->default(0);
             $table->boolean("pengurus_kos")->default(0);
             $table->boolean("dapur")->default(0);
             $table->boolean("wifi")->default(0);
+            $table->boolean("km_luar")->default(0);
 
             $table->longText("lainnya")->default("");
 
@@ -43,6 +45,8 @@ return new class extends Migration
             $table->string("nama");
             $table->bigInteger("harga");
             $table->json("gambar")->nullable();
+            $table->longText("deskripsi");
+            $table->integer("stock")->default(0);
 
             $table->timestamps();
         });
