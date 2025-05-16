@@ -25,7 +25,7 @@ class DatabaseSeeder extends Seeder
             Daerah::class,
             Jenis::class,
             Pemilik::class,
-            Kost::class
+            // Kost::class
         ]);
     }
 }

@@ -13,7 +13,7 @@ export default function CardBiasa() {
                 <div class="relative">
                     <div className="">
                         <img
-                            src="img/gambar/kos.jpeg"
+                            src={`${window.location.origin}/img/gambar/kos.jpeg`}
                             alt="Kosan"
                             class="w-full h-48 object-cover group-hover:scale-110 transition duration-1000 overflow-hidden"
                         />

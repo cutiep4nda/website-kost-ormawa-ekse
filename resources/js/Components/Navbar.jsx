@@ -14,25 +14,32 @@ export default function Navbar() {
         );
     };
     return (
-        <div class="bg-birumuda1 w-full h-24 px-10">
-            <div class="flex justify-between items-center h-full">
-                <Link class="Kiri flex gap-3 items-center" href="/">
-                    <img src="img/logo/sakarsa.png" alt="" class="h-24" />
-                    <p class="font-bold text-birutua2 text-2xl">Sakarsa Kos</p>
+        <div className="bg-birumuda1 w-full h-24 px-10">
+            <div className="flex justify-between items-center h-full">
+                <Link className="Kiri flex gap-3 items-center" href="/">
+                    <img
+                        src={`${window.location.origin}/img/logo/sakarsa.png`}
+                        alt=""
+                        className="h-24"
+                    />
+
+                    <p className="font-bold text-birutua2 text-2xl">
+                        Sakarsa Kos
+                    </p>
                 </Link>
-                <div class="flex items-center gap-6 p-4 w-full max-w-md">
+                <div className="flex items-center gap-6 p-4 w-full max-w-md">
                     {/*    <!-- Search Box  */}
-                    <div class="flex items-center bg-white border border-[#B8F2FF] rounded-full px-2 py-1 w-full shadow-sm">
+                    <div className="flex items-center bg-white border border-[#B8F2FF] rounded-full px-2 py-1 w-full shadow-sm">
                         {/*    <!-- Icon (gunakan icon library seperti Heroicons atau lucide-react)  */}
                         <LuTextSearch className="text-2xl mx-2 text-biru"></LuTextSearch>
 
                         <input
                             type="text"
                             placeholder="Sekitaran IPB"
-                            class="outline-none text-sm w-full placeholder-birumtext-birumuda2 text-birutua1 bg-transparent"
+                            className="outline-none text-sm w-full placeholder-birumtext-birumuda2 text-birutua1 bg-transparent"
                         />
 
-                        <button class="ml-2 bg-birumuda2 hover:bg-biru text-white text-sm px-3 py-1 rounded-full transition duration-300">
+                        <button className="ml-2 bg-birumuda2 hover:bg-biru text-white text-sm px-3 py-1 rounded-full transition duration-300">
                             Cari
                         </button>
                     </div>
@@ -49,7 +56,7 @@ export default function Navbar() {
                         {/*    <!-- Filter icon  */}
                         <svg
                             xmlns="http://www.w3.org/2000/svg"
-                            class="h-5 w-5"
+                            className="h-5 w-5"
                             fill="none"
                             viewBox="0 0 24 24"
                             stroke="currentColor"
