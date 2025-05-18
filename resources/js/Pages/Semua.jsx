@@ -8,7 +8,9 @@ import { IoMdArrowRoundBack } from "react-icons/io";
 import { FaLocationDot } from "react-icons/fa6";
 import { Link } from "@inertiajs/react";
 
-export default function Semua() {
+export default function Semua(props) {
+    const kost = props.kost;
+    // console.log(kost);
     return (
         <div>
             <div className="Desktop">
@@ -17,14 +19,9 @@ export default function Semua() {
                     Pilihan Lainnya Di ....
                 </div>
                 <div className="grid lg:grid-cols-2 grid-cols-1 px-10 py-6 gap-8 ">
-                    <CardKos></CardKos>
-                    <CardKos></CardKos>
-                    <CardKos></CardKos>
-                    <CardKos></CardKos>
-                    <CardKos></CardKos>
-                    <CardKos></CardKos>
-                    <CardKos></CardKos>
-                    <CardKos></CardKos>
+                    {kost.map((value, index) => (
+                        <CardKos data={value} key={index}></CardKos>
+                    ))}
                 </div>
                 <div className="flex justify-center mb-10">
                     <p>Pokoknya paginasi</p>

@@ -25,6 +25,6 @@ class KostController extends Controller
     }
     public function allKost(){
         $kost = Kost::all();
-        return view('all-kost', ['data' => $kost]);
+        return Inertia::render("Semua", ['kost' => $kost]);
     }
 }

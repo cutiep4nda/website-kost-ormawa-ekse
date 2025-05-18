@@ -2,11 +2,12 @@ import React from "react";
 import { Link } from "@inertiajs/react";
 import { FaLocationDot } from "react-icons/fa6";
 
-export default function CardKos() {
+export default function CardKos(props) {
+    const data = props.data;
     return (
         <Link
             className="w-full flex gap-5 rounded-2xl overflow-hidden"
-            href="/kos"
+            href={`kost/${data.id}`}
         >
             <div className="w-1/2 flex justify-center">
                 <img

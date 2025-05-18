@@ -183,7 +183,9 @@ export default function Kos(props) {
                 <div class="flex justify-between mb-6">
                     <p class="font-bold text-4xl">
                         Kos di daerah yang sama{" "}
-                        <span class="text-blue-500 font-bold">{daerah}</span>
+                        <span class="text-blue-500 font-bold">
+                            {props.daerah}
+                        </span>
                     </p>
                     <div class="flex gap-4">
                         <Link href="/semua">Lihat semua</Link>
