@@ -62,7 +62,7 @@ export default function Kos(props) {
     return (
         <div>
             <Navbar></Navbar>
-            <div className="px-14 py-10 max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-14">
+            <div className="md:px-14 px-6 py-10 max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-14">
                 {/* Kolom Kiri: Info Kos */}
                 <div className="lg:col-span-2 space-y-4">
                     {/* Gambar utama */}
@@ -179,21 +179,25 @@ export default function Kos(props) {
 
             <hr className="my-4 max-w-7xl mx-auto px-10 " />
 
-            <div class="px-10 flex flex-col gap- max-w-7xl mx-auto mb-10">
-                <div class="flex justify-between mb-6">
-                    <p class="font-bold text-4xl">
-                        Kos di daerah yang sama{" "}
-                        <span class="text-blue-500 font-bold">
-                            {props.daerah}
-                        </span>
+            <div class="px-4 md:px-10 flex flex-col gap- max-w-7xl mx-auto mb-10">
+                <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+                    <p className="font-bold text-2xl md:text-4xl">
+                        Pilihan kos di{" "}
+                        <span class="text-blue-500 font-bold">Daerah ^</span>
                     </p>
-                    <div class="flex gap-4">
-                        <Link href="/semua">Lihat semua</Link>
+                    <div className="flex flex-wrap items-center gap-3 text-sm md:text-base">
+                        <Link
+                            href="/semua"
+                            className="text-blue-600 hover:underline"
+                        >
+                            Lihat semua
+                        </Link>
                         <p>kiri</p>
                         <p>kanan</p>
                     </div>
                 </div>
-                <div class="grid grid-cols-3 gap-6">
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 mt-4 md:mt-0">
                     <CardBiasa></CardBiasa>
                     <CardBiasa></CardBiasa>
                     <CardBiasa></CardBiasa>

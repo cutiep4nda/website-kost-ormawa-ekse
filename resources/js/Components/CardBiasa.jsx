@@ -8,14 +8,14 @@ export default function CardBiasa() {
             class="Card hover:-translate-y-2 transition duration-500 group"
             href="/kos"
         >
-            <div class="max-w-lg bg-[#B8F2FF] rounded-xl overflow-hidden shadow-md">
+            <div class="max-w-lg bg-[#B8F2FF] rounded-xl overflow-hidden shadow-md ">
                 {/*    <!-- Gambar kos  */}
                 <div class="relative">
                     <div className="">
                         <img
                             src={`${window.location.origin}/img/gambar/kos.jpeg`}
                             alt="Kosan"
-                            class="w-full h-48 object-cover group-hover:scale-110 transition duration-1000 overflow-hidden"
+                            class="w-full object-cover group-hover:scale-110 transition duration-1000 overflow-hidden aspect-video"
                         />
                     </div>
 
@@ -26,22 +26,23 @@ export default function CardBiasa() {
                 </div>
 
                 {/*    <!-- Konten  */}
-                <div class="p-4">
-                    <h3 class="text-lg font-bold text-black">
+                <div className="p-3 md:space-y-2">
+                    <h3 className="text-lg font-bold text-black line-clamp-1">
                         Nama Kosan Nama Kosan
                     </h3>
 
-                    <p class="flex items-center text-sm text-black font-semibold mt-1">
-                        {/*    <!-- Icon lokasi (pakai react-icons atau Heroicons di project sebenarnya)  */}
-                        <FaLocationDot className="mr-1"></FaLocationDot> Nama
-                        daerah
+                    <p className="flex items-center text-sm text-black font-semibold">
+                        <FaLocationDot className="mr-1" />
+                        Nama daerah
                     </p>
 
-                    <p class="text-sm text-gray-600 mt-1">
+                    <p className="text-sm text-gray-700 line-clamp-2">
                         Kamar mandi dalam, WiFi, AC, Kasur
                     </p>
-                    <p class="text-md text-black font-semibold mt-1">
-                        Rp.1.000.000/bulan
+
+                    <p className="text-md text-black font-semibold">
+                        Rp.1.000.000{" "}
+                        <span className="text-sm text-gray-600">/bulan</span>
                     </p>
                 </div>
             </div>
