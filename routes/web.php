@@ -16,6 +16,9 @@ Route::get('/', function () {
 Route::get('/kos', function () {
    return Inertia::render('Kos');
 });
+Route::get('/premium', function () {
+   return Inertia::render('Premium/Premium1');
+});
 
 Route::get('/semua', [KostController::class, "allkost"])->name("all-kost");
 
