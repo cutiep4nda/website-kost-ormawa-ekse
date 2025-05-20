@@ -3,10 +3,37 @@ import CardBiasa from "../Components/CardBiasa";
 import Navbar from "../Components/Navbar";
 import Footer from "../Components/Footer";
 import { Link } from "@inertiajs/react";
+import { FaExternalLinkAlt } from "react-icons/fa";
 
 export default function Kos(props) {
     const data = props.data[0];
+
     console.log(data);
+
+    const processImages = () => {
+        try {
+            // Jika data.gambar adalah string JSON
+            if (data.gambar.startsWith("[") && data.gambar.endsWith("]")) {
+                const parsed = JSON.parse(data.gambar.replace(/\\/g, ""));
+                return Array.isArray(parsed)
+                    ? parsed.map((img) => img.trim().replace(/^"|"$/g, ""))
+                    : [parsed];
+            }
+            // Jika sudah array atau string biasa
+            return Array.isArray(data.gambar)
+                ? data.gambar.map((img) => img.trim())
+                : data.gambar.split(",").map((img) => img.trim());
+        } catch (error) {
+            console.error("Error processing images:", error);
+            return [];
+        }
+    };
+
+    const imageArray = processImages();
+    console.log("Processed images:", imageArray);
+
+    let alamat =
+        "Jl. Cilubang, RT.02/RW.08, Balungbangjaya, Kec. Bogor Bar., Kota Bogor, Jawa Barat";
 
     let jenis_kost = ["Putra", "Putri", "Campur"];
     let nama_daerah = ["Balebak"];
@@ -66,7 +93,13 @@ export default function Kos(props) {
                 {/* Kolom Kiri: Info Kos */}
                 <div className="lg:col-span-2 space-y-4">
                     {/* Gambar utama */}
-                    <div className="bg-gray-300 h-80 rounded-md" />
+                    <div className="h-80 rounded-md bg-gray-400 overflow-hidden">
+                        <img
+                            src={`${window.location.origin}/storage/${imageArray[0]}`}
+                            alt=""
+                            className="h-full w-full object-cover"
+                        />
+                    </div>
 
                     {/* Nama Kos & Info */}
                     <div>
@@ -170,8 +203,30 @@ export default function Kos(props) {
                     {/* Lokasi */}
                     <div>
                         <h2 className="text-lg font-semibold mb-2">Lokasi</h2>
-                        <div className="bg-gray-300 h-40 rounded-md flex items-center justify-center">
-                            <span className="text-4xl">📍</span>
+                        <div className="">
+                            <div className="relative pb-[56.25%] h-0 w-full rounded-xl overflow-hidden shadow-lg">
+                                <iframe
+                                    src={`https://maps.google.com/maps?q=${encodeURIComponent(
+                                        alamat
+                                    )}&output=embed`}
+                                    className="absolute top-0 left-0 w-full h-full border-0"
+                                    allowFullScreen
+                                    loading="lazy"
+                                />
+                            </div>
+                            <div className="mt-3">
+                                <a
+                                    href={
+                                        alamat?.replace("embed", "view") || "#"
+                                    }
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="text-[#248da8] hover:text-[#16cdd8] flex items-center"
+                                >
+                                    <FaExternalLinkAlt className="mr-2" />
+                                    Buka di Google Maps
+                                </a>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -197,7 +252,7 @@ export default function Kos(props) {
                     </div>
                 </div>
 
-                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 mt-4 md:mt-0">
+                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 mt-4 md:mt-6">
                     <CardBiasa></CardBiasa>
                     <CardBiasa></CardBiasa>
                     <CardBiasa></CardBiasa>

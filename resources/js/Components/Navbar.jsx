@@ -15,7 +15,7 @@ export default function Navbar() {
     };
 
     return (
-        <div className="bg-birumuda1 w-full px-4 sm:px-6 md:px-10 py-3 md:py-0">
+        <div className="bg-birumuda1 w-full px-4 sm:px-6 md:px-10 py-3 md:py-0 ">
             <div className="flex flex-col md:flex-row justify-between items-center gap-4 md:gap-0 h-full relative">
                 {/* Logo & Title */}
                 <Link className="flex gap-3 items-center" href="/">
