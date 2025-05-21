@@ -1,4 +1,5 @@
 import React from "react";
+import { useState } from "react";
 import { Link } from "@inertiajs/react";
 import CardPremium from "../Components/CardPremium";
 import CardBiasa from "../Components/CardBiasa";
@@ -7,8 +8,8 @@ import Navbar from "../Components/Navbar";
 import { FaLocationDot } from "react-icons/fa6";
 import { LuTextSearch } from "react-icons/lu";
 import Footer from "../Components/Footer";
-import { IoMdArrowRoundForward } from "react-icons/io";
-import { IoMdArrowRoundBack } from "react-icons/io";
+import { FaChevronDown, FaChevronLeft, FaChevronRight } from "react-icons/fa";
+
 import OwlCarousel from "react-owl-carousel";
 import "owl.carousel/dist/assets/owl.carousel.css";
 import "owl.carousel/dist/assets/owl.theme.default.css";
@@ -59,6 +60,29 @@ export default function Home() {
         center: true,
         autoWidth: true,
         margin: 20,
+    };
+
+    const DaftarDaerah = [
+        { id: 1, nama: "Balebak" },
+        { id: 2, nama: "Balio" },
+        { id: 3, nama: "Bara" },
+        { id: 4, nama: "Perwira" },
+        { id: 5, nama: "Cibanteng" },
+        { id: 6, nama: "Bateng" },
+        { id: 7, nama: "DC" },
+        { id: 8, nama: "Cangkurawok" },
+    ];
+
+    const [selectedDaerah, setSelectedDaerah] = useState(DaftarDaerah[0]);
+    const [showDropdown, setShowDropdown] = useState(false);
+
+    // Fungsi untuk handle perubahan daerah
+    const handleDaerahChange = (daerah) => {
+        setSelectedDaerah(daerah);
+        setShowDropdown(false);
+        // Di sini Anda bisa memanggil fungsi untuk memfilter data kos
+        // berdasarkan daerah yang dipilih
+        // filterKosByDaerah(daerah.id);
     };
     return (
         <div className="">
@@ -129,7 +153,11 @@ export default function Home() {
                         </p>
 
                         <div className="flex items-center gap-3 px-2 py-4 w-full max-w-xs sm:max-w-sm md:max-w-md">
-                            <div className="flex items-center bg-biru text-birumuda2 border border-birumuda1 rounded-lg px-2 py-1 w-full shadow-sm">
+                            <form
+                                className="flex items-center bg-biru text-birumuda2 border border-birumuda1 rounded-lg px-2 py-1 w-full shadow-sm"
+                                action=""
+                                method="POST"
+                            >
                                 <LuTextSearch className="text-2xl md:text-3xl mx-2 text-white" />
                                 <input
                                     type="text"
@@ -139,7 +167,7 @@ export default function Home() {
                                 <button className="ml-2 bg-birumuda2 hover:bg-birutua2 text-white text-xs md:text-sm px-3 py-1 rounded-lg transition duration-300 font-semibold">
                                     Cari
                                 </button>
-                            </div>
+                            </form>
                         </div>
                     </div>
                 </div>
@@ -223,10 +251,44 @@ export default function Home() {
                     data-aos="fade-up"
                     data-aos-duration="800"
                 >
-                    <p className="font-bold text-2xl md:text-4xl">
-                        Pilihan kos di{" "}
-                        <span class="text-blue-500 font-bold">Daerah ^</span>
-                    </p>
+                    <div className="relative">
+                        <p className="font-bold text-2xl md:text-3xl">
+                            Pilihan kos di{" "}
+                            <span
+                                className="text-blue-500 font-bold cursor-pointer hover:underline items-center"
+                                onClick={() => setShowDropdown(!showDropdown)}
+                            >
+                                {selectedDaerah.nama}{" "}
+                                <FaChevronDown
+                                    className="ml-2 inline"
+                                    size={16}
+                                />
+                            </span>
+                        </p>
+
+                        {showDropdown && (
+                            <div className="top-full left-0 mt-2 bg-white shadow-lg rounded-md  w-96">
+                                <div className="grid grid-cols-2">
+                                    {DaftarDaerah.map((daerah) => (
+                                        <div
+                                            key={daerah.id}
+                                            className={`px-4 py-2 hover:bg-blue-50 cursor-pointer z-50 ${
+                                                selectedDaerah.id === daerah.id
+                                                    ? "bg-blue-100 text-blue-600"
+                                                    : ""
+                                            }`}
+                                            onClick={() =>
+                                                handleDaerahChange(daerah)
+                                            }
+                                        >
+                                            {daerah.nama}
+                                        </div>
+                                    ))}
+                                </div>
+                            </div>
+                        )}
+                    </div>
+
                     <div className="flex flex-wrap items-center gap-3 text-sm md:text-base">
                         <Link
                             href="/semua"
@@ -234,8 +296,12 @@ export default function Home() {
                         >
                             Lihat semua
                         </Link>
-                        <p>kiri</p>
-                        <p>kanan</p>
+                        <button className="p-1 rounded-full hover:bg-gray-100">
+                            <FaChevronLeft />
+                        </button>
+                        <button className="p-1 rounded-full hover:bg-gray-100">
+                            <FaChevronRight />
+                        </button>
                     </div>
                 </div>
 
