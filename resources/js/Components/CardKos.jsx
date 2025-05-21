@@ -4,10 +4,14 @@ import { FaLocationDot } from "react-icons/fa6";
 
 export default function CardKos(props) {
     const data = props.data;
+    console.log(data);
     return (
         <Link
             className="w-full flex gap-5 rounded-2xl overflow-hidden"
             href={`kost/${data.id}`}
+            data-aos="fade-up"
+            data-aos-duration="800"
+            data-aos-delay={props.delay}
         >
             <div className="w-1/2 flex justify-center">
                 <img

@@ -66,7 +66,7 @@ const KostLandingPage = () => {
     }, []);
 
     return (
-        <div className="relative h-screen w-full ">
+        <div className="relative md:h-screen w-full ">
             {/* Background Image with Overlay */}
             <div className="absolute inset-0 z-0">
                 <img
@@ -78,7 +78,7 @@ const KostLandingPage = () => {
             </div>
 
             {/* Content Container */}
-            <div className="relative z-10 h-full flex flex-col justify-center items-center text-white px-4 sm:px-8">
+            <div className="relative z-10 h-full flex flex-col justify-center items-center text-white px-4 py-10 md:py-0 sm:px-8">
                 <div className="max-w-4xl mx-auto text-center">
                     <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-6">
                         {kost.name}
@@ -180,10 +180,10 @@ export default function Premium1() {
             <KostLandingPage />
 
             {/* Main Content */}
-            <main className="container mx-auto px-4 py-8">
+            <main className="container mx-auto px-4 pt-8">
                 {/* Hero Section with Image Carousel */}
-                <div className="relative rounded-2xl overflow-hidden shadow-xl mb-8 bg-white border border-birutua1 border-2">
-                    <div className="relative h-96">
+                <div className="relative rounded-2xl overflow-hidden shadow-xl mb-8 bg-white border-birutua1 border-2">
+                    <div className="relative h-96 md:h-[500px]">
                         <img
                             src={kost.images[currentImageIndex]}
                             // src={`${window.location.origin}/${kost.images[currentImageIndex]}`}
@@ -218,10 +218,6 @@ export default function Premium1() {
                                 />
                             ))}
                         </div>
-
-                        <button className="absolute top-4 right-4 bg-white/80 p-2 rounded-full hover:bg-white transition">
-                            <FaHeart size={20} className="text-[#003459]" />
-                        </button>
                     </div>
 
                     {/* Kos Information */}
@@ -284,59 +280,217 @@ export default function Premium1() {
                                 {kost.description}
                             </p>
                         </div>
-
-                        {/* Facilities */}
-                        <div className="mt-8">
-                            <h3 className="text-xl font-semibold text-[#003459] mb-4">
-                                Fasilitas
-                            </h3>
-                            <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-                                {kost.facilities.map((facility, index) => (
-                                    <div
-                                        key={index}
-                                        className="flex items-center bg-[#b8f2ff]/30 p-3 rounded-lg"
+                        <div className="flex gap-4 md:flex-row flex-col">
+                            {/* Facilities */}
+                            <div className="mt-8">
+                                <h3 className="text-xl font-semibold text-[#003459] mb-4">
+                                    Fasilitas
+                                </h3>
+                                <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+                                    {kost.facilities.map((facility, index) => (
+                                        <div
+                                            key={index}
+                                            className="flex items-center bg-[#b8f2ff]/30 p-3 rounded-lg"
+                                        >
+                                            <facility.icon
+                                                size={20}
+                                                className="text-[#248da8] mr-2"
+                                            />
+                                            <span className="text-[#003459]">
+                                                {facility.name}
+                                            </span>
+                                        </div>
+                                    ))}
+                                </div>
+                            </div>
+                            {/* Google Maps Embed */}
+                            <div className="mt-6 flex-1">
+                                <h3 className="text-xl font-semibold text-[#003459] mb-4">
+                                    Lokasi
+                                </h3>
+                                <div className="relative pb-[56.25%] h-0 rounded-xl overflow-hidden shadow-lg">
+                                    <iframe
+                                        src={`https://maps.google.com/maps?q=${encodeURIComponent(
+                                            kost.locationLink
+                                        )}&output=embed`}
+                                        className="absolute top-0 left-0 w-full h-full border-0"
+                                        allowFullScreen
+                                        loading="lazy"
+                                    />
+                                </div>
+                                <div className="mt-3">
+                                    <a
+                                        href={
+                                            kost.locationLink?.replace(
+                                                "embed",
+                                                "view"
+                                            ) || "#"
+                                        }
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="text-[#248da8] hover:text-[#16cdd8] flex items-center"
                                     >
-                                        <facility.icon
-                                            size={20}
-                                            className="text-[#248da8] mr-2"
-                                        />
-                                        <span className="text-[#003459]">
-                                            {facility.name}
-                                        </span>
-                                    </div>
-                                ))}
+                                        <FaExternalLinkAlt className="mr-2" />
+                                        Buka di Google Maps
+                                    </a>
+                                </div>
                             </div>
                         </div>
-                        {/* Google Maps Embed */}
-                        <div className="mt-6">
-                            <h3 className="text-xl font-semibold text-[#003459] mb-4">
-                                Lokasi
-                            </h3>
-                            <div className="relative pb-[56.25%] h-0 rounded-xl overflow-hidden shadow-lg">
-                                <iframe
-                                    src={`https://maps.google.com/maps?q=${encodeURIComponent(
-                                        kost.locationLink
-                                    )}&output=embed`}
-                                    className="absolute top-0 left-0 w-full h-full border-0"
-                                    allowFullScreen
-                                    loading="lazy"
+                    </div>
+                </div>
+
+                <div className="relative rounded-2xl overflow-hidden shadow-xl mb-8 bg-white border-birutua1 border-2">
+                    <div className="relative h-96 md:h-[500px]">
+                        <img
+                            src={kost.images[currentImageIndex]}
+                            // src={`${window.location.origin}/${kost.images[currentImageIndex]}`}
+                            alt={`${kost.name} view ${currentImageIndex + 1}`}
+                            className="w-full h-full object-cover"
+                        />
+
+                        <button
+                            onClick={prevImage}
+                            className="absolute left-4 top-1/2 -translate-y-1/2 bg-white/80 p-2 rounded-full text-[#003459] hover:bg-white transition"
+                        >
+                            <IoChevronBackOutline size={24} />
+                        </button>
+
+                        <button
+                            onClick={nextImage}
+                            className="absolute right-4 top-1/2 -translate-y-1/2 bg-white/80 p-2 rounded-full text-[#003459] hover:bg-white transition"
+                        >
+                            <IoChevronForwardOutline size={24} />
+                        </button>
+
+                        <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex space-x-2">
+                            {kost.images.map((_, index) => (
+                                <button
+                                    key={index}
+                                    className={`w-3 h-3 rounded-full ${
+                                        index === currentImageIndex
+                                            ? "bg-[#16cdd8]"
+                                            : "bg-white/60"
+                                    }`}
+                                    onClick={() => setCurrentImageIndex(index)}
                                 />
+                            ))}
+                        </div>
+                    </div>
+
+                    {/* Kos Information */}
+                    <div className="p-6">
+                        <div className="flex justify-between items-start mb-4">
+                            <div>
+                                <h1 className="text-3xl font-bold text-[#003459]">
+                                    {kost.name}
+                                </h1>
+                                <div className="flex items-center mt-2 text-gray-600">
+                                    <FaMapMarkerAlt
+                                        size={16}
+                                        className="mr-1 text-[#248da8]"
+                                    />
+                                    <span>{kost.location}</span>
+                                </div>
                             </div>
-                            <div className="mt-3">
-                                <a
-                                    href={
-                                        kost.locationLink?.replace(
-                                            "embed",
-                                            "view"
-                                        ) || "#"
-                                    }
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className="text-[#248da8] hover:text-[#16cdd8] flex items-center"
-                                >
-                                    <FaExternalLinkAlt className="mr-2" />
-                                    Buka di Google Maps
-                                </a>
+                            <div className="bg-[#16cdd8]/10 px-4 py-2 rounded-lg">
+                                <div className="text-[#003459] font-bold text-xl">
+                                    {kost.type}
+                                </div>
+                                <div className="text-[#248da8] text-sm">
+                                    Sisa {kost.remaining} kamar
+                                </div>
+                            </div>
+                        </div>
+
+                        <div className="flex items-center mb-6">
+                            <div className="flex items-center text-yellow-500 mr-2">
+                                <FaLocationArrow size={18} />
+                                <span className="ml-2 font-semibold text-[#003459]">
+                                    Balebak{kost.rating}
+                                </span>
+                            </div>
+                            <span className="text-gray-500">
+                                ({kost.reviews} ulasan)
+                            </span>
+                        </div>
+
+                        <hr className="my-6 border-gray-200" />
+
+                        {/* Price & Description */}
+                        <div className="mb-8">
+                            <div className="flex justify-between items-center mb-4">
+                                <h2 className="text-2xl font-bold text-[#003459]">
+                                    Rp {kost.price.toLocaleString("id-ID")}
+                                    <span className="text-gray-500 text-lg font-normal">
+                                        /bulan
+                                    </span>
+                                </h2>
+                                <button className="bg-[#248da8] text-white px-6 py-3 rounded-lg hover:bg-[#16cdd8] transition font-semibold">
+                                    Pesan Sekarang
+                                </button>
+                            </div>
+
+                            <h3 className="text-xl font-semibold text-[#003459] mb-2">
+                                Deskripsi
+                            </h3>
+                            <p className="text-gray-600 mb-6">
+                                {kost.description}
+                            </p>
+                        </div>
+                        <div className="flex gap-4 md:flex-row flex-col">
+                            {/* Facilities */}
+                            <div className="mt-8">
+                                <h3 className="text-xl font-semibold text-[#003459] mb-4">
+                                    Fasilitas
+                                </h3>
+                                <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+                                    {kost.facilities.map((facility, index) => (
+                                        <div
+                                            key={index}
+                                            className="flex items-center bg-[#b8f2ff]/30 p-3 rounded-lg"
+                                        >
+                                            <facility.icon
+                                                size={20}
+                                                className="text-[#248da8] mr-2"
+                                            />
+                                            <span className="text-[#003459]">
+                                                {facility.name}
+                                            </span>
+                                        </div>
+                                    ))}
+                                </div>
+                            </div>
+                            {/* Google Maps Embed */}
+                            <div className="mt-6 flex-1">
+                                <h3 className="text-xl font-semibold text-[#003459] mb-4">
+                                    Lokasi
+                                </h3>
+                                <div className="relative pb-[56.25%] h-0 rounded-xl overflow-hidden shadow-lg">
+                                    <iframe
+                                        src={`https://maps.google.com/maps?q=${encodeURIComponent(
+                                            kost.locationLink
+                                        )}&output=embed`}
+                                        className="absolute top-0 left-0 w-full h-full border-0"
+                                        allowFullScreen
+                                        loading="lazy"
+                                    />
+                                </div>
+                                <div className="mt-3">
+                                    <a
+                                        href={
+                                            kost.locationLink?.replace(
+                                                "embed",
+                                                "view"
+                                            ) || "#"
+                                        }
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="text-[#248da8] hover:text-[#16cdd8] flex items-center"
+                                    >
+                                        <FaExternalLinkAlt className="mr-2" />
+                                        Buka di Google Maps
+                                    </a>
+                                </div>
                             </div>
                         </div>
                     </div>

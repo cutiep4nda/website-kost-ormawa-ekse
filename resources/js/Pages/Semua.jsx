@@ -21,8 +21,16 @@ export default function Semua(props) {
                 <div className="grid lg:grid-cols-2 grid-cols-1 px-4 md:px-10 py-6 gap-8 ">
                     {kost.map((value, index) => (
                         <div className="">
-                            <CardKos data={value} key={index}></CardKos>
-                            <hr className="sm:hidden mt-6" />
+                            <CardKos
+                                data={value}
+                                key={index}
+                                // delay={(index % 2) * 500}
+                            ></CardKos>
+                            <hr
+                                className="sm:hidden mt-6"
+                                data-aos="fade-up"
+                                data-aos-duration="800"
+                            />
                         </div>
                     ))}
                 </div>

@@ -1,10 +1,10 @@
 import { Link } from "@inertiajs/react";
 import React from "react";
 
-export default function CardPremium() {
+export default function CardPremium(props) {
     return (
-        <Link class="Card" href="/Premium">
-            <div class="max-w-lg bg-white rounded-xl overflow-hidden shadow-md">
+        <Link class="Card" href={props.link}>
+            <div class="md:w-[450px] bg-white rounded-xl overflow-hidden shadow-md">
                 {/*    <!-- Gambar kos  */}
                 <div class="relative">
                     <img

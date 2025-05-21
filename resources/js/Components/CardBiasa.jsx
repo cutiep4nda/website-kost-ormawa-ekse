@@ -6,7 +6,9 @@ export default function CardBiasa() {
     return (
         <Link
             class="Card hover:-translate-y-2 transition duration-500 group"
-            href="/kos"
+            href="/kost/5"
+            data-aos="fade-up"
+            data-aos-duration="800"
         >
             <div class="max-w-lg bg-[#B8F2FF] rounded-xl overflow-hidden shadow-md ">
                 {/*    <!-- Gambar kos  */}
