@@ -29,6 +29,8 @@ return new class extends Migration
             $table->boolean("kipas_angin")->default(0);
             $table->boolean("meja_belajar")->default(0);
             $table->boolean("km_dalam")->default(0);
+            $table->boolean("shower")->default(0);
+            $table->boolean("water_heater")->default(0);
 
             // fasilitas kos
             $table->boolean("kulkas")->default(0);
@@ -38,6 +40,11 @@ return new class extends Migration
             $table->boolean("dapur")->default(0);
             $table->boolean("wifi")->default(0);
             $table->boolean("km_luar")->default(0);
+            $table->boolean("tv")->default(0);
+            $table->boolean("cctv")->default(0);
+            $table->boolean("lobby")->default(0);
+            $table->boolean("r_jemur")->default(0);
+            $table->boolean("mesin_cuci")->default(0);
 
             $table->longText("lainnya")->default("");
 
@@ -47,6 +54,7 @@ return new class extends Migration
             $table->json("gambar")->nullable();
             $table->longText("deskripsi");
             $table->integer("stock")->default(0);
+            $table->longText("alamat")->default("");
 
             $table->timestamps();
         });

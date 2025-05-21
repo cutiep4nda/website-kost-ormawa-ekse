@@ -15,5 +15,26 @@ class Daerah extends Seeder
         \App\Models\daerah::create([
             'daerah' => 'Balebak'
         ]);
+        \App\Models\daerah::create([
+            'daerah' => 'Balio'
+        ]);
+        \App\Models\daerah::create([
+            'daerah' => 'Perwira'
+        ]);
+        \App\Models\daerah::create([
+            'daerah' => 'Bara'
+        ]);
+        \App\Models\daerah::create([
+            'daerah' => 'Bateng'
+        ]);
+        \App\Models\daerah::create([
+            'daerah' => 'Cibanteng'
+        ]);
+        \App\Models\daerah::create([
+            'daerah' => 'Cangkurawok'
+        ]);
+        \App\Models\daerah::create([
+            'daerah' => 'Dramaga Cantik'
+        ]);
     }
 }

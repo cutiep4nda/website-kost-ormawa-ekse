@@ -35,3 +35,5 @@ Route::middleware("auth:admin")->group(function(){
 
 Route::get('/kost/{id}', [KostController::class, "kost"])->name("kost");
 // Route::get('/all-kost', [KostController::class, 'allKost'])->name('all-kost');
+
+Route::post('/filter', [KostController::class, 'filter'])->name("filter-kost");
