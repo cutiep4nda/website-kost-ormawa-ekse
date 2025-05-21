@@ -5,8 +5,8 @@ import CardPremium from "../Components/CardPremium";
 import CardBiasa from "../Components/CardBiasa";
 import CardDaerah from "../Components/CardDaerah";
 import Navbar from "../Components/Navbar";
-import { FaLocationDot } from "react-icons/fa6";
 import { LuTextSearch } from "react-icons/lu";
+import axios from "axios";
 import Footer from "../Components/Footer";
 import { FaChevronDown, FaChevronLeft, FaChevronRight } from "react-icons/fa";
 
@@ -75,6 +75,9 @@ export default function Home() {
 
     const [selectedDaerah, setSelectedDaerah] = useState(DaftarDaerah[0]);
     const [showDropdown, setShowDropdown] = useState(false);
+    const [searchTerm, setSearchTerm] = useState("");
+    const [isLoading, setIsLoading] = useState(false);
+    const [error, setError] = useState(null);
 
     // Fungsi untuk handle perubahan daerah
     const handleDaerahChange = (daerah) => {
@@ -84,6 +87,9 @@ export default function Home() {
         // berdasarkan daerah yang dipilih
         // filterKosByDaerah(daerah.id);
     };
+
+    const handleSubmit = () => {};
+
     return (
         <div className="">
             {/*{/* <!-- Buat Mobile  */}
@@ -155,17 +161,29 @@ export default function Home() {
                         <div className="flex items-center gap-3 px-2 py-4 w-full max-w-xs sm:max-w-sm md:max-w-md">
                             <form
                                 className="flex items-center bg-biru text-birumuda2 border border-birumuda1 rounded-lg px-2 py-1 w-full shadow-sm"
-                                action=""
-                                method="POST"
+                                onSubmit={handleSubmit}
                             >
                                 <LuTextSearch className="text-2xl md:text-3xl mx-2 text-white" />
                                 <input
                                     type="text"
                                     placeholder="Sekitaran IPB"
                                     className="outline-none text-sm w-full placeholder-[#fff] text-white bg-transparent font-semibold"
+                                    value={searchTerm}
+                                    onChange={(e) =>
+                                        setSearchTerm(e.target.value)
+                                    }
+                                    disabled={isLoading}
                                 />
-                                <button className="ml-2 bg-birumuda2 hover:bg-birutua2 text-white text-xs md:text-sm px-3 py-1 rounded-lg transition duration-300 font-semibold">
-                                    Cari
+                                <button
+                                    type="submit"
+                                    className={`ml-2 ${
+                                        isLoading
+                                            ? "bg-gray-400"
+                                            : "bg-birumuda2 hover:bg-birutua2"
+                                    } text-white text-xs md:text-sm px-3 py-1 rounded-lg transition duration-300 font-semibold`}
+                                    disabled={isLoading}
+                                >
+                                    {isLoading ? "Mencari..." : "Cari"}
                                 </button>
                             </form>
                         </div>

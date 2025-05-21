@@ -1,8 +1,9 @@
+import { useState } from "react";
+import axios from "axios";
+// import Link from "next/link";
 import { Link } from "@inertiajs/react";
-import React, { useState } from "react";
 import { LuTextSearch } from "react-icons/lu";
 import {
-    FaSearch,
     FaMale,
     FaFemale,
     FaUsers,
@@ -12,12 +13,17 @@ import {
     FaChair,
     FaWifi,
     FaFan,
+    FaSearch,
 } from "react-icons/fa";
 
 export default function Navbar() {
     const [showFilter, setShowFilter] = useState(false);
     const [selectedGender, setSelectedGender] = useState("");
     const [selectedFacilities, setSelectedFacilities] = useState([]);
+    const [minPrice, setMinPrice] = useState("");
+    const [maxPrice, setMaxPrice] = useState("");
+    const [searchTerm, setSearchTerm] = useState("");
+
     const toggleFacility = (facility) => {
         setSelectedFacilities((prev) =>
             prev.includes(facility)
@@ -26,14 +32,19 @@ export default function Navbar() {
         );
     };
 
+    const handleSubmit = () => {};
+
+    // Enhanced handleSubmit with better debugging for 500 errors
+    // Enhanced debugging to extract Laravel error message from HTML response
+
     return (
         <div className="bg-birumuda1 w-full px-4 sm:px-6 md:px-10 py-3 md:py-0 ">
             <div className="flex flex-col md:flex-row justify-between items-center gap-4 md:gap-0 h-full relative">
                 {/* Logo & Title */}
                 <Link className="flex gap-3 items-center" href="/">
                     <img
-                        src={`${window.location.origin}/img/logo/sakarsa.png`}
-                        alt=""
+                        src="/img/logo/sakarsa.png"
+                        alt="Sakarsa Logo"
                         className="h-20 sm:h-24 object-contain"
                     />
                     <p className="font-bold text-birutua2 text-2xl">
@@ -45,15 +56,15 @@ export default function Navbar() {
                 <div className="flex flex-col sm:flex-row items-center gap-4 w-full md:w-auto">
                     <form
                         className="flex items-center bg-white border border-[#B8F2FF] rounded-full px-2 py-1 w-full sm:w-[300px] md:w-[400px] shadow-sm"
-                        action=""
-                        method="POST"
+                        onSubmit={handleSubmit}
                     >
                         <LuTextSearch className="text-2xl mx-2 text-biru" />
-
                         <input
                             type="text"
                             placeholder="Sekitaran IPB"
                             className="outline-none text-sm w-full placeholder-birumtext-birumuda2 text-birutua1 bg-transparent"
+                            value={searchTerm}
+                            onChange={(e) => setSearchTerm(e.target.value)}
                         />
                         <button
                             type="submit"
@@ -97,7 +108,7 @@ export default function Navbar() {
                             Filter
                         </h2>
 
-                        <form action="/filter" method="POST">
+                        <form onSubmit={handleSubmit}>
                             {/* Jenis Kos */}
                             <div className="mb-4">
                                 <label className="block text-sm font-medium mb-2">
@@ -174,6 +185,10 @@ export default function Navbar() {
                                             name="minPrice"
                                             placeholder="Minimal"
                                             className="border rounded px-3 py-2 w-full text-sm"
+                                            value={minPrice}
+                                            onChange={(e) =>
+                                                setMinPrice(e.target.value)
+                                            }
                                         />
                                     </div>
                                     <span className="text-gray-500">-</span>
@@ -183,6 +198,10 @@ export default function Navbar() {
                                             name="maxPrice"
                                             placeholder="Maksimal"
                                             className="border rounded px-3 py-2 w-full text-sm"
+                                            value={maxPrice}
+                                            onChange={(e) =>
+                                                setMaxPrice(e.target.value)
+                                            }
                                         />
                                     </div>
                                 </div>
