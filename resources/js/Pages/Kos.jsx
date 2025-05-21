@@ -234,11 +234,11 @@ export default function Kos(props) {
 
             <hr className="my-4 max-w-7xl mx-auto px-10 " />
 
-            <div class="px-4 md:px-10 flex flex-col gap- max-w-7xl mx-auto mb-10">
+            <div className="px-4 md:px-10 flex flex-col gap- max-w-7xl mx-auto mb-10">
                 <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
                     <p className="font-bold text-2xl md:text-4xl">
                         Pilihan kos di{" "}
-                        <span class="text-blue-500 font-bold">Daerah ^</span>
+                        <span className="text-blue-500 font-bold">Daerah ^</span>
                     </p>
                     <div className="flex flex-wrap items-center gap-3 text-sm md:text-base">
                         <Link
@@ -252,7 +252,7 @@ export default function Kos(props) {
                     </div>
                 </div>
 
-                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 mt-4 md:mt-6">
+                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 mt-4 md:mt-6">
                     <CardBiasa></CardBiasa>
                     <CardBiasa></CardBiasa>
                     <CardBiasa></CardBiasa>

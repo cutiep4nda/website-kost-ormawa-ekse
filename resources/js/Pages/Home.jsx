@@ -193,7 +193,7 @@ export default function Home() {
 
             {/*    <!-- Bagiann 2  */}
             <div
-                class="flex flex-col items-center gap-4 md:mt-10 mt-20 px-10 justify-center"
+                className="flex flex-col items-center gap-4 md:mt-10 mt-20 px-10 justify-center"
                 data-aos="fade-up"
                 data-aos-duration="800"
             >
@@ -204,14 +204,14 @@ export default function Home() {
                     <CardPremium link="premium"></CardPremium>
                 </OwlCarousel>
 
-                <div class="">
-                    <a href="#" class="hover:text-blue-400">
+                <div className="">
+                    <a href="#" className="hover:text-blue-400">
                         Lihat Semua Rekomendasi
                     </a>
                 </div>
             </div>
 
-            <hr class="border-2 border-slate-400 my-6" />
+            <hr className="border-2 border-slate-400 my-6" />
 
             {/*    <!-- Bagian 3  */}
             <div className="px-3 md:px-10 flex flex-col gap-6">
@@ -259,7 +259,7 @@ export default function Home() {
                 </div>
             </div>
 
-            <hr class="border-2 border-slate-400 my-6" />
+            <hr className="border-2 border-slate-400 my-6" />
 
             {/*    <!-- Bagian 4  */}
 
@@ -346,11 +346,11 @@ export default function Home() {
                     </div>
                 </div>
             </div>
-            <hr class="border-2 border-slate-400 my-6" />
+            <hr className="border-2 border-slate-400 my-6" />
             {/*{/* <!-- Bagian 5  */}
-            <div class="px-4 md:px-10 flex flex-col gap-6 mb-10">
+            <div className="px-4 md:px-10 flex flex-col gap-6 mb-10">
                 <p
-                    class="font-bold text-4xl"
+                    className="font-bold text-4xl"
                     data-aos="fade-up"
                     data-aos-duration="800"
                 >
@@ -369,7 +369,7 @@ export default function Home() {
             </div>
             <Footer></Footer>
 
-            {/* <div class="h-screen"></div> */}
+            {/* <div className="h-screen"></div> */}
         </div>
     );
 }

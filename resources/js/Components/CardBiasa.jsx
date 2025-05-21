@@ -5,24 +5,24 @@ import React from "react";
 export default function CardBiasa() {
     return (
         <Link
-            class="Card hover:-translate-y-2 transition duration-500 group"
+            className="Card hover:-translate-y-2 transition duration-500 group"
             href="/kost/5"
             data-aos="fade-up"
             data-aos-duration="800"
         >
-            <div class="max-w-lg bg-[#B8F2FF] rounded-xl overflow-hidden shadow-md ">
+            <div className="max-w-lg bg-[#B8F2FF] rounded-xl overflow-hidden shadow-md ">
                 {/*    <!-- Gambar kos  */}
-                <div class="relative">
+                <div className="relative">
                     <div className="">
                         <img
                             src={`${window.location.origin}/img/gambar/kos.jpeg`}
                             alt="Kosan"
-                            class="w-full object-cover group-hover:scale-110 transition duration-1000 overflow-hidden aspect-video"
+                            className="w-full object-cover group-hover:scale-110 transition duration-1000 overflow-hidden aspect-video"
                         />
                     </div>
 
                     {/*    <!-- Label Putra/Putri  */}
-                    <span class="absolute bottom-2 left-2 bg-white text-black text-xs font-semibold px-2 py-1 rounded shadow">
+                    <span className="absolute bottom-2 left-2 bg-white text-black text-xs font-semibold px-2 py-1 rounded shadow">
                         Putra
                     </span>
                 </div>

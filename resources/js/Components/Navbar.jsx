@@ -1,7 +1,5 @@
-import { useState } from "react";
-import axios from "axios";
-// import Link from "next/link";
-import { Link } from "@inertiajs/react";
+import { useState, useEffect } from "react";
+import { Link, router } from "@inertiajs/react";
 import { LuTextSearch } from "react-icons/lu";
 import {
     FaMale,
@@ -16,14 +14,17 @@ import {
     FaSearch,
 } from "react-icons/fa";
 
-export default function Navbar() {
+export default function Navbar({ initialFilters = {} }) {
+    // Set up state with initial values from URL if available
     const [showFilter, setShowFilter] = useState(false);
-    const [selectedGender, setSelectedGender] = useState("");
-    const [selectedFacilities, setSelectedFacilities] = useState([]);
-    const [minPrice, setMinPrice] = useState("");
-    const [maxPrice, setMaxPrice] = useState("");
-    const [searchTerm, setSearchTerm] = useState("");
-
+    const [selectedGender, setSelectedGender] = useState(initialFilters.gender || "");
+    const [selectedFacilities, setSelectedFacilities] = useState(initialFilters.facilities || []);
+    const [minPrice, setMinPrice] = useState(initialFilters.min_price || "");
+    const [maxPrice, setMaxPrice] = useState(initialFilters.max_price || "");
+    const [searchTerm, setSearchTerm] = useState(initialFilters.search || "");
+    const [isLoading, setIsLoading] = useState(false);
+    
+    // Function to toggle facility selection
     const toggleFacility = (facility) => {
         setSelectedFacilities((prev) =>
             prev.includes(facility)
@@ -32,13 +33,61 @@ export default function Navbar() {
         );
     };
 
-    const handleSubmit = () => {};
+    // Handle form submission
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        setIsLoading(true);
+        
+        // Create the filter object with only non-empty values
+        const filters = {
+            search: searchTerm || undefined,
+            gender: selectedGender || undefined,
+            min_price: minPrice || undefined,
+            max_price: maxPrice || undefined,
+        };
+        
+        // Only add facilities if there are any selected
+        if (selectedFacilities.length > 0) {
+            filters.facilities = selectedFacilities;
+        }
+        
+        // Use Inertia's router to make the request
+        router.get('/filter', filters, {
+            preserveState: true,
+            preserveScroll: true,
+            onFinish: () => {
+                setIsLoading(false);
+                setShowFilter(false); // Close filter panel after submission
+            }
+        });
+        router.post('/filter', filters, {
+            onFinish: () => {
+                setIsLoading(false);
+                setShowFilter(false); // Close filter panel after submission
+            }
+        });
+    };
 
-    // Enhanced handleSubmit with better debugging for 500 errors
-    // Enhanced debugging to extract Laravel error message from HTML response
-
+    // Reset filter function
+    const resetFilters = () => {
+        setSelectedGender("");
+        setSelectedFacilities([]);
+        setMinPrice("");
+        setMaxPrice("");
+        setSearchTerm("");
+    };
+    useEffect(() => {
+    console.log({
+        searchTerm,
+        selectedGender,
+        minPrice,
+        maxPrice,
+        selectedFacilities
+    });
+}, [searchTerm, selectedGender, minPrice, maxPrice, selectedFacilities]);
+    
     return (
-        <div className="bg-birumuda1 w-full px-4 sm:px-6 md:px-10 py-3 md:py-0 ">
+        <div className="bg-birumuda1 w-full px-4 sm:px-6 md:px-10 py-3 md:py-0">
             <div className="flex flex-col md:flex-row justify-between items-center gap-4 md:gap-0 h-full relative">
                 {/* Logo & Title */}
                 <Link className="flex gap-3 items-center" href="/">
@@ -68,8 +117,12 @@ export default function Navbar() {
                         />
                         <button
                             type="submit"
-                            className="ml-2 bg-birumuda2 hover:bg-biru text-white text-sm px-3 py-1 rounded-full transition duration-300"
+                            className="ml-2 bg-birumuda2 hover:bg-biru text-white text-sm px-3 py-1 rounded-full transition duration-300 flex items-center"
+                            disabled={isLoading}
                         >
+                            {isLoading ? (
+                                <span className="inline-block animate-spin mr-1">⟳</span>
+                            ) : null}
                             Cari
                         </button>
                     </form>
@@ -104,9 +157,15 @@ export default function Navbar() {
                 {/* Filter Panel */}
                 {showFilter && (
                     <div className="absolute z-50 top-full mt-2 right-4 sm:right-10 bg-white shadow-md rounded-md p-6 w-full sm:w-[400px]">
-                        <h2 className="text-center font-semibold mb-4">
-                            Filter
-                        </h2>
+                        <div className="flex justify-between items-center mb-4">
+                            <h2 className="font-semibold">Filter</h2>
+                            <button 
+                                onClick={resetFilters}
+                                className="text-xs text-gray-500 hover:text-birumuda2"
+                            >
+                                Reset Filter
+                            </button>
+                        </div>
 
                         <form onSubmit={handleSubmit}>
                             {/* Jenis Kos */}
@@ -290,8 +349,14 @@ export default function Navbar() {
                             <button
                                 type="submit"
                                 className="py-2 w-full bg-birumuda2 rounded-2xl mt-6 font-bold text-white hover:bg-biru transition duration-300 flex items-center justify-center"
+                                disabled={isLoading}
                             >
-                                <FaSearch className="mr-2" /> Cari
+                                {isLoading ? (
+                                    <span className="inline-block animate-spin mr-2">⟳</span>
+                                ) : (
+                                    <FaSearch className="mr-2" />
+                                )}
+                                {isLoading ? "Mencari..." : "Cari"}
                             </button>
                         </form>
                     </div>

@@ -4,13 +4,13 @@ import React from "react";
 export default function CardDaerah(props) {
     return (
         <Link
-            class="Card Daerah"
+            className="Card Daerah"
             href="semua"
             data-aos="fade-up"
             data-aos-duration="800"
         >
-            <div class="max-w-lg aspect-square bg-[#B8F2FF] rounded-xl overflow-hidden shadow-md flex items-center justify-center hover:bg-blue-500 transition duration-300">
-                <p class="font-bold text-xl">{props.daerah}</p>
+            <div className="max-w-lg aspect-square bg-[#B8F2FF] rounded-xl overflow-hidden shadow-md flex items-center justify-center hover:bg-blue-500 transition duration-300">
+                <p className="font-bold text-xl">{props.daerah}</p>
             </div>
         </Link>
     );

@@ -36,4 +36,8 @@ Route::middleware("auth:admin")->group(function(){
 Route::get('/kost/{id}', [KostController::class, "kost"])->name("kost");
 // Route::get('/all-kost', [KostController::class, 'allKost'])->name('all-kost');
 
-Route::post('/filter', [KostController::class, 'filter'])->name("filter-kost");
+// Change POST to GET to match your frontend
+Route::get('/filter', [KostController::class, 'filter'])->name("filter-kost");
+
+// Keep the POST route for backward compatibility if needed
+Route::post('/filter', [KostController::class, 'filter'])->name("filter-kost-post");
