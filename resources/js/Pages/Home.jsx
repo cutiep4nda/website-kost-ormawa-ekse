@@ -1,6 +1,6 @@
 import React from "react";
 import { useState } from "react";
-import { Link } from "@inertiajs/react";
+import { Link, router } from "@inertiajs/react";
 import CardPremium from "../Components/CardPremium";
 import CardBiasa from "../Components/CardBiasa";
 import CardDaerah from "../Components/CardDaerah";
@@ -75,6 +75,10 @@ export default function Home() {
 
     const [selectedDaerah, setSelectedDaerah] = useState(DaftarDaerah[0]);
     const [showDropdown, setShowDropdown] = useState(false);
+    const [selectedGender, setSelectedGender] = useState("");
+    const [minPrice, setMinPrice] = useState(0);
+    const [maxPrice, setMaxPrice] = useState(0);
+    const [selectedFacilities, setSelectedFacilities] = useState([]);
     const [searchTerm, setSearchTerm] = useState("");
     const [isLoading, setIsLoading] = useState(false);
     const [error, setError] = useState(null);
@@ -83,13 +87,55 @@ export default function Home() {
     const handleDaerahChange = (daerah) => {
         setSelectedDaerah(daerah);
         setShowDropdown(false);
-        // Di sini Anda bisa memanggil fungsi untuk memfilter data kos
-        // berdasarkan daerah yang dipilih
-        // filterKosByDaerah(daerah.id);
+        const filters = {
+            daerah: selectedDaerah,
+        };
+        router.get("/filter", filters, {
+            preserveState: true,
+            preserveScroll: true,
+            onFinish: () => {
+                setIsLoading(false);
+                // setShowFilter(false); // Close filter panel after submission
+            },
+        });
+        router.post("/filter", filters, {
+            onFinish: () => {
+                setIsLoading(false);
+                // setShowFilter(false); // Close filter panel after submission
+            },
+        });
     };
 
-    const handleSubmit = () => {};
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        setIsLoading(true);
 
+        // Create the filter object with only non-empty values
+        const filters = {
+            search: searchTerm || "",
+        };
+
+        // Only add facilities if there are any selected
+        if (selectedFacilities.length > 0) {
+            filters.facilities = selectedFacilities;
+        }
+
+        // Use Inertia's router to make the request
+        router.get("/filter", filters, {
+            preserveState: true,
+            preserveScroll: true,
+            onFinish: () => {
+                setIsLoading(false);
+                // setShowFilter(false); // Close filter panel after submission
+            },
+        });
+        router.post("/filter", filters, {
+            onFinish: () => {
+                setIsLoading(false);
+                // setShowFilter(false); // Close filter panel after submission
+            },
+        });
+    };
     return (
         <div className="">
             {/*{/* <!-- Buat Mobile  */}

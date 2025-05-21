@@ -17,13 +17,17 @@ import {
 export default function Navbar({ initialFilters = {} }) {
     // Set up state with initial values from URL if available
     const [showFilter, setShowFilter] = useState(false);
-    const [selectedGender, setSelectedGender] = useState(initialFilters.gender || "");
-    const [selectedFacilities, setSelectedFacilities] = useState(initialFilters.facilities || []);
+    const [selectedGender, setSelectedGender] = useState(
+        initialFilters.gender || ""
+    );
+    const [selectedFacilities, setSelectedFacilities] = useState(
+        initialFilters.facilities || []
+    );
     const [minPrice, setMinPrice] = useState(initialFilters.min_price || "");
     const [maxPrice, setMaxPrice] = useState(initialFilters.max_price || "");
     const [searchTerm, setSearchTerm] = useState(initialFilters.search || "");
     const [isLoading, setIsLoading] = useState(false);
-    
+
     // Function to toggle facility selection
     const toggleFacility = (facility) => {
         setSelectedFacilities((prev) =>
@@ -37,34 +41,35 @@ export default function Navbar({ initialFilters = {} }) {
     const handleSubmit = (e) => {
         e.preventDefault();
         setIsLoading(true);
-        
+
         // Create the filter object with only non-empty values
         const filters = {
-            search: searchTerm || undefined,
-            gender: selectedGender || undefined,
-            min_price: minPrice || undefined,
-            max_price: maxPrice || undefined,
+            search: searchTerm || "",
+            gender: selectedGender || "",
+            min_price: minPrice || 0,
+            max_price: maxPrice || 0,
+            facilities: [],
         };
-        
+
         // Only add facilities if there are any selected
         if (selectedFacilities.length > 0) {
             filters.facilities = selectedFacilities;
         }
-        
+
         // Use Inertia's router to make the request
-        router.get('/filter', filters, {
+        router.get("/filter", filters, {
             preserveState: true,
             preserveScroll: true,
             onFinish: () => {
                 setIsLoading(false);
                 setShowFilter(false); // Close filter panel after submission
-            }
+            },
         });
-        router.post('/filter', filters, {
+        router.post("/filter", filters, {
             onFinish: () => {
                 setIsLoading(false);
                 setShowFilter(false); // Close filter panel after submission
-            }
+            },
         });
     };
 
@@ -77,15 +82,15 @@ export default function Navbar({ initialFilters = {} }) {
         setSearchTerm("");
     };
     useEffect(() => {
-    console.log({
-        searchTerm,
-        selectedGender,
-        minPrice,
-        maxPrice,
-        selectedFacilities
-    });
-}, [searchTerm, selectedGender, minPrice, maxPrice, selectedFacilities]);
-    
+        console.log({
+            searchTerm,
+            selectedGender,
+            minPrice,
+            maxPrice,
+            selectedFacilities,
+        });
+    }, [searchTerm, selectedGender, minPrice, maxPrice, selectedFacilities]);
+
     return (
         <div className="bg-birumuda1 w-full px-4 sm:px-6 md:px-10 py-3 md:py-0">
             <div className="flex flex-col md:flex-row justify-between items-center gap-4 md:gap-0 h-full relative">
@@ -121,7 +126,9 @@ export default function Navbar({ initialFilters = {} }) {
                             disabled={isLoading}
                         >
                             {isLoading ? (
-                                <span className="inline-block animate-spin mr-1">⟳</span>
+                                <span className="inline-block animate-spin mr-1">
+                                    ⟳
+                                </span>
                             ) : null}
                             Cari
                         </button>
@@ -159,7 +166,7 @@ export default function Navbar({ initialFilters = {} }) {
                     <div className="absolute z-50 top-full mt-2 right-4 sm:right-10 bg-white shadow-md rounded-md p-6 w-full sm:w-[400px]">
                         <div className="flex justify-between items-center mb-4">
                             <h2 className="font-semibold">Filter</h2>
-                            <button 
+                            <button
                                 onClick={resetFilters}
                                 className="text-xs text-gray-500 hover:text-birumuda2"
                             >
@@ -352,7 +359,9 @@ export default function Navbar({ initialFilters = {} }) {
                                 disabled={isLoading}
                             >
                                 {isLoading ? (
-                                    <span className="inline-block animate-spin mr-2">⟳</span>
+                                    <span className="inline-block animate-spin mr-2">
+                                        ⟳
+                                    </span>
                                 ) : (
                                     <FaSearch className="mr-2" />
                                 )}
