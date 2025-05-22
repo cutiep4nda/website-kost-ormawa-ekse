@@ -33,8 +33,9 @@ class KostController extends Controller
         return Inertia::render("Semua", ['kost' => $data]);
     }
     public function filter(Request $request){
+        
         $data = $request->all();
-        // dd($data);
+        //dd($data);
         $search = $data['search'];
         $gender = $data['gender'];
         $daerah = $data['daerah']['nama'];
@@ -83,7 +84,7 @@ class KostController extends Controller
             $kost = $kost->where('nama', 'like', "%{$search}%")->orWhere('deskripsi', 'like', "%{$search}%");
         }
 
-        if($data['daerah'] != ""){
+        if($data['daerah']['nama'] != ""){
             $kost = $kost->whereRelation('daerah', 'daerah', $daerah);
         }
 

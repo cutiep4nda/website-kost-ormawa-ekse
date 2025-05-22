@@ -27,6 +27,15 @@ export default function Navbar({ initialFilters = {} }) {
     const [maxPrice, setMaxPrice] = useState(initialFilters.max_price || "");
     const [searchTerm, setSearchTerm] = useState(initialFilters.search || "");
     const [isLoading, setIsLoading] = useState(false);
+    
+    const Daerah = [
+        {
+            id:"",
+            nama:"",
+        }
+    ]
+    const [selectedDaerah, setSelectedDaerah] = useState(Daerah[0]);
+    
 
     // Function to toggle facility selection
     const toggleFacility = (facility) => {
@@ -36,6 +45,7 @@ export default function Navbar({ initialFilters = {} }) {
                 : [...prev, facility]
         );
     };
+    
 
     // Handle form submission
     const handleSubmit = (e) => {
@@ -49,12 +59,14 @@ export default function Navbar({ initialFilters = {} }) {
             min_price: minPrice || 0,
             max_price: maxPrice || 0,
             facilities: [],
+            daerah : selectedDaerah,
         };
 
         // Only add facilities if there are any selected
         if (selectedFacilities.length > 0) {
             filters.facilities = selectedFacilities;
         }
+
 
         // Use Inertia's router to make the request
         router.get("/filter", filters, {
