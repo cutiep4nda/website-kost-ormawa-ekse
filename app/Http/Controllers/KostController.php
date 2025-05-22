@@ -14,9 +14,6 @@ class KostController extends Controller
         $kost = Kost::where('id', $id)->get();
         $pemilik = Pemilik::where('id',$kost[0]->pemilik_id)->first();
         $daerah = Daerah::where('id',$kost[0]->daerah_id)->first();
-    
-       
-
         // return view('kost', ['data' => $kost[0]]);
         return Inertia::render("Kos", 
         ['data' => $kost,
@@ -37,8 +34,10 @@ class KostController extends Controller
     }
     public function filter(Request $request){
         $data = $request->all();
+        // dd($data);
         $search = $data['search'];
         $gender = $data['gender'];
+        $daerah = $data['daerah']['nama'];
         
         $min_price = 0;
         if($data['min_price'] != 0){
@@ -75,13 +74,17 @@ class KostController extends Controller
         foreach($facilities as $value){
             $kost = $kost->where($value, 1);
         }
-        if($data['gender'] != null){
+        if($data['gender'] != ""){
             $kost = $kost->whereRelation('jenis', 'jenis', $gender);
         }
         $kost = $kost->whereBetween('harga', [$min_price, $max_price]);
         
-        if($data['search'] != ''){
+        if($data['search'] != ""){
             $kost = $kost->where('nama', 'like', "%{$search}%")->orWhere('deskripsi', 'like', "%{$search}%");
+        }
+
+        if($data['daerah'] != ""){
+            $kost = $kost->whereRelation('daerah', 'daerah', $daerah);
         }
 
         $kost = $kost->get();

@@ -69,7 +69,7 @@ export default function Home() {
         { id: 4, nama: "Perwira" },
         { id: 5, nama: "Cibanteng" },
         { id: 6, nama: "Bateng" },
-        { id: 7, nama: "DC" },
+        { id: 7, nama: "Dramag Cantik" },
         { id: 8, nama: "Cangkurawok" },
     ];
 
@@ -89,6 +89,11 @@ export default function Home() {
         setShowDropdown(false);
         const filters = {
             daerah: selectedDaerah,
+            search: "",
+            gender: "",
+            min_price: 0,
+            max_price: 0,
+            facilities: [],
         };
         router.get("/filter", filters, {
             preserveState: true,
@@ -113,6 +118,7 @@ export default function Home() {
         // Create the filter object with only non-empty values
         const filters = {
             search: searchTerm || "",
+            daerah: "",
         };
 
         // Only add facilities if there are any selected
