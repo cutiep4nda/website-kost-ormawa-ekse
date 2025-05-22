@@ -4,11 +4,34 @@ import Navbar from "../Components/Navbar";
 import Footer from "../Components/Footer";
 import { Link } from "@inertiajs/react";
 import { FaExternalLinkAlt } from "react-icons/fa";
+import {
+    FaBath,
+    FaShower,
+    FaBed,
+    FaCoffee,
+    FaWifi,
+    FaSnowflake,
+    FaMotorcycle,
+    FaCar,
+    FaUserTie,
+    FaUtensils,
+    FaToilet,
+    FaEllipsisH,
+    FaFan,
+    FaChair,
+    FaTv,
+    FaVideo,
+    FaDoorOpen,
+    FaSun,
+    FaFireAlt,
+} from "react-icons/fa";
+import { GiWashingMachine } from "react-icons/gi";
+import { RiFridgeFill } from "react-icons/ri";
 
 export default function Kos(props) {
     const data = props.data[0];
 
-    console.log(data);
+    console.log(props);
 
     const processImages = () => {
         try {
@@ -30,61 +53,119 @@ export default function Kos(props) {
     };
 
     const imageArray = processImages();
-    console.log("Processed images:", imageArray);
+    // console.log("Processed images:", imageArray);
 
     let alamat =
         "Jl. Cilubang, RT.02/RW.08, Balungbangjaya, Kec. Bogor Bar., Kota Bogor, Jawa Barat";
 
     let jenis_kost = ["Putra", "Putri", "Campur"];
     let nama_daerah = ["Balebak"];
-    let f_kamar = [
-        "ac",
-        "bantal",
-        "kasur",
-        "lemari",
-        "kipas_angin",
-        "meja_belajar",
-        "km_dalam",
-    ];
-    let f_kamar_text = [
-        "AC",
-        "Bantal",
-        "Kasur",
-        "Lemari",
-        "Kipas Angin",
-        "Meja Belajar",
-        "Kamar Mandi Dalam",
-    ];
-    // $icon = ['....'] berisi ikon tiap tiap fasilitas
 
-    // array berisi kkey dari fasilitas kos
-    let f_kost = [
-        "kulkas",
-        "p_motor",
-        "p_mobil",
-        "pengurus_kos",
-        "dapur",
-        "wifi",
-        "km_luar",
-        "lainnya",
-    ];
-    let f_kost_text = [
-        "Kulkas",
-        "Parkiran Motor",
-        "Parkiran Mobil",
-        "Pengurus Kost",
-        "Dapur",
-        "Wi-Fi",
-        "Kamar Mandi Luar",
-        "Lainnya",
-    ];
+    let fasilitas = {
+        ac: "AC",
+        bantal: "Bantal",
+        kasur: "Kasur",
+        kipas_angin: "Kipas Angin",
+        lemari: "Lemari",
+        km_dalam: "Kamar Mandi Dalam",
+        meja_belajar: "Meja Belajar",
+        kulkas: "Kulkas",
+        p_motor: "Parkir Motor",
+        mobil: "Parkir Mobil",
+        wifi: "WiFi",
+        km_luar: "Kamar Mandi Luar",
+        shower: "Shower",
+        water_heater: "Water Heater",
+        pengurus_kos: "Pengurus Kos",
+        dapur: "Dapur",
+        tv: "TV",
+        cctv: "CCTV",
+        lobby: "Lobby",
+        r_jemur: "Ruang Jemur",
+        mesin_cuci: "Mesin Cuci",
+        lainnya: "Fasilitas Lainnya",
+    };
+
+    const facilitiesToDisplay = [];
+
+    const facilityData = {
+        kamar: [
+            { key: "ac", name: "AC", icon: FaSnowflake },
+            { key: "bantal", name: "Bantal", icon: FaBed },
+            { key: "kasur", name: "Kasur", icon: FaBed },
+            { key: "lemari", name: "Lemari", icon: FaChair },
+            { key: "kipas_angin", name: "Kipas Angin", icon: FaFan },
+            { key: "meja_belajar", name: "Meja Belajar", icon: FaCoffee },
+            { key: "km_dalam", name: "Kamar Mandi Dalam", icon: FaBath },
+        ],
+        kost: [
+            { key: "kulkas", name: "Kulkas", icon: RiFridgeFill },
+            { key: "p_motor", name: "Parkir Motor", icon: FaMotorcycle },
+            { key: "mobil", name: "Parkir Mobil", icon: FaCar },
+            { key: "pengurus_kos", name: "Pengurus Kos", icon: FaUserTie },
+            { key: "dapur", name: "Dapur", icon: FaUtensils },
+            { key: "wifi", name: "WiFi", icon: FaWifi },
+            { key: "km_luar", name: "Kamar Mandi Luar", icon: FaToilet },
+            { key: "tv", name: "TV", icon: FaTv },
+            { key: "cctv", name: "CCTV", icon: FaVideo },
+            { key: "lobby", name: "Lobby", icon: FaDoorOpen },
+            { key: "r_jemur", name: "Ruang Jemur", icon: FaSun },
+            { key: "mesin_cuci", name: "Mesin Cuci", icon: GiWashingMachine },
+            { key: "shower", name: "Shower", icon: FaShower },
+            { key: "water_heater", name: "Water Heater", icon: FaFireAlt },
+        ],
+    };
+
+    const availableFacilities = Object.entries(data)
+        .filter(
+            ([key, value]) =>
+                value === 1 &&
+                ![
+                    "id",
+                    "jenis_id",
+                    "daerah_id",
+                    "pemilik_id",
+                    "stock",
+                    "harga",
+                    "ukuran",
+                    "created_at",
+                    "updated_at",
+                    "nama",
+                    "pemilik",
+                    "daerah",
+                    "jenis",
+                    "alamat",
+                    "deskripsi",
+                    "gambar",
+                ].includes(key)
+        )
+        .map(([key]) => key);
+
+    // console.log(availableFacilities);
+
+    let f_kamar = [];
+    let f_kos = [];
+
+    facilityData.kamar.forEach((fac) => {
+        if (availableFacilities.includes(fac.key)) {
+            f_kamar.push(fac);
+        }
+    });
+
+    facilityData.kost.forEach((fac) => {
+        if (availableFacilities.includes(fac.key)) {
+            f_kos.push(fac);
+        }
+    });
+
+    // console.log(f_kamar);
+    // console.log(f_kos);
 
     const formatRupiah = (price) => {
         return `Rp. ${Number(price).toLocaleString("id-ID")}`;
     };
 
-    let jenis = jenis_kost[data.jenis_id - 1];
-    let daerah = nama_daerah[data.daerah_id - 1];
+    // let jenis = jenis_kost[data.jenis_id - 1];
 
     return (
         <div>
@@ -106,7 +187,7 @@ export default function Kos(props) {
                         <h1 className="text-2xl font-bold">{data.nama}</h1>
                         <div className="flex items-center gap-2 text-sm text-gray-600 mt-1">
                             <span className="bg-gray-100 px-2 py-1 rounded">
-                                Kos {jenis}
+                                Kos {props.jenis}
                             </span>
                             <span>• {props.daerah}</span>
                         </div>
@@ -136,28 +217,54 @@ export default function Kos(props) {
                             Fasilitas Kamar
                         </h2>
                         <div className="grid grid-cols-2 md:grid-cols-2 gap-2 text-lg text-gray-700">
-                            {f_kamar.map((value, index) =>
-                                data[value] ? (
-                                    <span key={index}>
-                                        {f_kamar_text[index]} <br />
+                            {f_kamar.length > 0 ? (
+                                f_kamar.map((facility) => (
+                                    <div
+                                        key={facility.key}
+                                        className="flex items-center gap-1 bg-birumuda1/60 px-2 py-1 rounded text-black p-1"
+                                    >
+                                        <facility.icon className="text-xl" />
+                                        <span className="text-base ml-2 font-semibold">
+                                            {facility.name}
+                                        </span>
+                                    </div>
+                                ))
+                            ) : (
+                                <div className="flex items-center gap-1 bg-gray-100 px-2 py-1 rounded">
+                                    <FaEllipsisH className="text-gray-600 text-sm" />
+                                    <span className="text-sm">
+                                        Tidak ada fasilitas
                                     </span>
-                                ) : null
+                                </div>
                             )}
                         </div>
                     </div>
 
                     {/* Fasilitas Kos */}
-                    <div className="pt-4 border-t">
-                        <h2 className="text-lg font-bold mt-2 mb-2">
+                    <div>
+                        <h2 className="text-lg font-bold mt-4 mb-2">
                             Fasilitas Kos
                         </h2>
                         <div className="grid grid-cols-2 md:grid-cols-2 gap-2 text-lg text-gray-700">
-                            {f_kost.map((value, index) =>
-                                data[value] ? (
-                                    <span key={index}>
-                                        {f_kost_text[index]} <br />
+                            {f_kos.length > 0 ? (
+                                f_kos.map((facility) => (
+                                    <div
+                                        key={facility.key}
+                                        className="flex items-center gap-1 bg-birumuda1/60 px-2 py-1 rounded text-black p-1"
+                                    >
+                                        <facility.icon className="text-xl" />
+                                        <span className="text-base ml-2 font-semibold">
+                                            {facility.name}
+                                        </span>
+                                    </div>
+                                ))
+                            ) : (
+                                <div className="flex items-center gap-1 bg-gray-100 px-2 py-1 rounded">
+                                    <FaEllipsisH className="text-gray-600 text-sm" />
+                                    <span className="text-sm">
+                                        Tidak ada fasilitas
                                     </span>
-                                ) : null
+                                </div>
                             )}
                         </div>
                     </div>
@@ -186,16 +293,10 @@ export default function Kos(props) {
                         </p>
                         <div className="mt-4 flex gap-2">
                             <a
-                                href="#"
+                                href={`https://wa.me/6281383756292`}
                                 className="flex-1 bg-green-500 text-white text-sm text-center py-2 rounded-md"
                             >
                                 WhatsApp
-                            </a>
-                            <a
-                                href="#"
-                                className="flex-1 bg-gray-800 text-white text-sm text-center py-2 rounded-md"
-                            >
-                                Telepon pemilik
                             </a>
                         </div>
                     </div>
@@ -236,9 +337,11 @@ export default function Kos(props) {
 
             <div className="px-4 md:px-10 flex flex-col gap- max-w-7xl mx-auto mb-10">
                 <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
-                    <p className="font-bold text-2xl md:text-4xl">
+                    <p className="font-bold text-2xl md:text-3xl">
                         Pilihan kos di{" "}
-                        <span className="text-blue-500 font-bold">Daerah ^</span>
+                        <span className="text-blue-500 font-bold">
+                            {props.daerah}
+                        </span>
                     </p>
                     <div className="flex flex-wrap items-center gap-3 text-sm md:text-base">
                         <Link
@@ -253,9 +356,18 @@ export default function Kos(props) {
                 </div>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 mt-4 md:mt-6">
+                    {/* <CardBiasa></CardBiasa>
                     <CardBiasa></CardBiasa>
-                    <CardBiasa></CardBiasa>
-                    <CardBiasa></CardBiasa>
+                    <CardBiasa></CardBiasa> */}
+                    {props.kost_lain.length > 0 ? (
+                        props.kost_lain.map((data, index) => (
+                            <CardBiasa key={index} data={data}></CardBiasa>
+                        ))
+                    ) : (
+                        <div className="flex items-center gap-1 bg-gray-100 px-2 py-1 rounded">
+                            <p>Tidak ada data kos di daerah ini</p>
+                        </div>
+                    )}
                 </div>
             </div>
 

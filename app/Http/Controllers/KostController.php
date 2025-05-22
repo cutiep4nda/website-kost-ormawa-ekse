@@ -5,8 +5,12 @@ namespace App\Http\Controllers;
 use App\Models\Kost;
 use App\Models\Pemilik;
 use App\Models\daerah;
+use App\Models\Jenis;
+
 use Illuminate\Http\Request;
 use Inertia\Inertia;
+
+use function PHPSTORM_META\map;
 
 class KostController extends Controller
 {
@@ -14,11 +18,33 @@ class KostController extends Controller
         $kost = Kost::where('id', $id)->get();
         $pemilik = Pemilik::where('id',$kost[0]->pemilik_id)->first();
         $daerah = Daerah::where('id',$kost[0]->daerah_id)->first();
+        $jenis = Jenis::where('id', $kost[0]->jenis_id)->first();
+
+        $allKostsdaerah = Kost::where('daerah_id', $kost[0]->daerah_id)
+                     ->where('id', '!=', $kost[0]->id)
+                     ->inRandomOrder()
+                     ->take(3)
+                     ->get();
+
+                     $data_kost_daerah = [];
+                     foreach ($allKostsdaerah as $key => $value) {
+                         $data_kost_daerah[] = array_merge($allKostsdaerah[$key]->toArray(), array(
+                             'jenis' => $value->jenis->jenis,
+                             'daerah' => $value->daerah->daerah,
+                             'pemilik' => $value->pemilik->nama_pemilik
+                         ));
+                     }
+
+        // dd($data_kost_daerah);
+        // $kost_lain = $allKostsdaerah->count() > 3 ? $allKostsdaerah->random(3) : $allKostsdaerah;
+
+        
         // return view('kost', ['data' => $kost[0]]);
         return Inertia::render("Kos", 
         ['data' => $kost,
+        'jenis' => $jenis->jenis,
          'pemilik' => $pemilik->nama_pemilik,
-         'daerah' => $daerah->daerah]);
+         'daerah' => $daerah->daerah, 'kost_lain' => $data_kost_daerah]);
     }
     public function allKost(){
         $kost = Kost::all();
@@ -30,12 +56,12 @@ class KostController extends Controller
                 'pemilik' => $value->pemilik->nama_pemilik
             ));
         }
-        return Inertia::render("Semua", ['kost' => $data]);
+        return Inertia::render("Semua", ['data' => $data]);
     }
     public function filter(Request $request){
         
         $data = $request->all();
-        //dd($data);
+        // dd($data);
         $search = $data['search'];
         $gender = $data['gender'];
         $daerah = $data['daerah']['nama'];
@@ -99,6 +125,29 @@ class KostController extends Controller
             ));
         }
 
-        dd($data);
+        return inertia::render("Semua", ["data" => $data]);
+    }
+
+    public function daerah($daerah)
+    {
+        // Filter langsung di query database
+        $kost_daerah = Kost::with(['daerah', 'jenis', 'pemilik'])
+            ->whereHas('daerah', function($query) use ($daerah) {
+                $query->where('daerah', $daerah); // atau 'id' jika $daerah adalah ID
+            })
+            ->get()
+            ->map(function($kost) {
+                return [
+                    // Data utama kost
+                    ...$kost->toArray(),
+                    // Data relasi
+                    'jenis' => $kost->jenis->jenis,
+                    'daerah' => $kost->daerah->daerah,
+                    'pemilik' => $kost->pemilik->nama_pemilik
+                ];
+            });
+    
+            return inertia::render("Semua", ["data" => $kost_daerah]);
+
     }
 }

@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\KostController;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -10,9 +11,9 @@ use Inertia\Inertia;
 // });
 
 
-Route::get('/', function () {
-   return Inertia::render('Home');
-});
+
+Route::get('/', [HomeController::class, "home"])->name("home");
+
 Route::get('/kos', function () {
    return Inertia::render('Kos');
 });
@@ -41,3 +42,4 @@ Route::get('/filter', [KostController::class, 'filter'])->name("filter-kost");
 
 // Keep the POST route for backward compatibility if needed
 Route::post('/filter', [KostController::class, 'filter'])->name("filter-kost-post");
+Route::get('/daerah/{daerah}', [KostController::class, 'daerah'])->name("kost-daerah");

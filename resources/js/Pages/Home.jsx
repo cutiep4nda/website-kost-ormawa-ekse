@@ -1,5 +1,5 @@
 import React from "react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link, router } from "@inertiajs/react";
 import CardPremium from "../Components/CardPremium";
 import CardBiasa from "../Components/CardBiasa";
@@ -14,7 +14,7 @@ import OwlCarousel from "react-owl-carousel";
 import "owl.carousel/dist/assets/owl.carousel.css";
 import "owl.carousel/dist/assets/owl.theme.default.css";
 
-export default function Home() {
+export default function Home(props) {
     const settings = {
         loop: true,
         autoplay: true,
@@ -69,11 +69,14 @@ export default function Home() {
         { id: 4, nama: "Perwira" },
         { id: 5, nama: "Cibanteng" },
         { id: 6, nama: "Bateng" },
-        { id: 7, nama: "Dramag Cantik" },
+        { id: 7, nama: "Dramaga Cantik" },
         { id: 8, nama: "Cangkurawok" },
     ];
 
     const [selectedDaerah, setSelectedDaerah] = useState(DaftarDaerah[0]);
+    useEffect(() => {
+        console.log("Nilai selectedDaerah berubah:", selectedDaerah);
+    }, [selectedDaerah]);
     const [showDropdown, setShowDropdown] = useState(false);
     const [selectedGender, setSelectedGender] = useState("");
     const [minPrice, setMinPrice] = useState(0);
@@ -88,7 +91,7 @@ export default function Home() {
         setSelectedDaerah(daerah);
         setShowDropdown(false);
         const filters = {
-            daerah: selectedDaerah,
+            daerah: daerah,
             search: "",
             gender: "",
             min_price: 0,
@@ -142,6 +145,8 @@ export default function Home() {
             },
         });
     };
+
+    // console.log(props.kost);
     return (
         <div className="">
             {/*{/* <!-- Buat Mobile  */}
@@ -282,8 +287,6 @@ export default function Home() {
                         >
                             Lihat semua
                         </Link>
-                        <p>kiri</p>
-                        <p>kanan</p>
                     </div>
                 </div>
 
@@ -294,19 +297,30 @@ export default function Home() {
                 >
                     <div className="sm:block hidden">
                         <OwlCarousel className="owl-theme" {...settingsBiasa}>
-                            <CardBiasa />
-                            <CardBiasa />
-                            <CardBiasa />
-                            <CardBiasa />
-                            <CardBiasa />
-                            <CardBiasa />
+                            {props.kost.length > 0 ? (
+                                props.kost.map((data, index) => (
+                                    <CardBiasa
+                                        key={index}
+                                        data={data}
+                                    ></CardBiasa>
+                                ))
+                            ) : (
+                                <div className="flex items-center gap-1 bg-gray-100 px-2 py-1 rounded">
+                                    <p>gaada</p>
+                                </div>
+                            )}
                         </OwlCarousel>
                     </div>
                     <div className="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 md:gap-4 gap-3 sm:hidden">
-                        <CardBiasa />
-                        <CardBiasa />
-                        <CardBiasa />
-                        <CardBiasa />
+                        {props.kost.length > 0 ? (
+                            props.kost.map((data, index) => (
+                                <CardBiasa key={index} data={data}></CardBiasa>
+                            ))
+                        ) : (
+                            <div className="flex items-center gap-1 bg-gray-100 px-2 py-1 rounded">
+                                <p>gaada</p>
+                            </div>
+                        )}
                     </div>
                 </div>
             </div>
@@ -359,19 +373,13 @@ export default function Home() {
                         )}
                     </div>
 
-                    <div className="flex flex-wrap items-center gap-3 text-sm md:text-base">
+                    <div className="flex flex-wrap items-center gap-3 text-sm md:text-base ">
                         <Link
                             href="/semua"
                             className="text-blue-600 hover:underline"
                         >
                             Lihat semua
                         </Link>
-                        <button className="p-1 rounded-full hover:bg-gray-100">
-                            <FaChevronLeft />
-                        </button>
-                        <button className="p-1 rounded-full hover:bg-gray-100">
-                            <FaChevronRight />
-                        </button>
                     </div>
                 </div>
 
@@ -382,19 +390,30 @@ export default function Home() {
                 >
                     <div className="sm:block hidden">
                         <OwlCarousel className="owl-theme" {...settingsBiasa}>
-                            <CardBiasa />
-                            <CardBiasa />
-                            <CardBiasa />
-                            <CardBiasa />
-                            <CardBiasa />
-                            <CardBiasa />
+                            {props.kost_daerah.length > 0 ? (
+                                props.kost_daerah.map((data, index) => (
+                                    <CardBiasa
+                                        key={index}
+                                        data={data}
+                                    ></CardBiasa>
+                                ))
+                            ) : (
+                                <div className="flex items-center gap-1 bg-gray-100 px-2 py-1 rounded">
+                                    <p>gaada</p>
+                                </div>
+                            )}
                         </OwlCarousel>
                     </div>
                     <div className="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 md:gap-4 gap-3 sm:hidden">
-                        <CardBiasa />
-                        <CardBiasa />
-                        <CardBiasa />
-                        <CardBiasa />
+                        {props.kost_daerah.length > 0 ? (
+                            props.kost_daerah.map((data, index) => (
+                                <CardBiasa key={index} data={data}></CardBiasa>
+                            ))
+                        ) : (
+                            <div className="flex items-center gap-1 bg-gray-100 px-2 py-1 rounded">
+                                <p>gaada</p>
+                            </div>
+                        )}
                     </div>
                 </div>
             </div>
@@ -409,14 +428,15 @@ export default function Home() {
                     Daerah Kos Populer
                 </p>
                 <div className="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 md:gap-4 gap-3">
-                    <CardDaerah daerah="Bateng"></CardDaerah>
-                    <CardDaerah daerah="Bateng"></CardDaerah>
-                    <CardDaerah daerah="Bateng"></CardDaerah>
-                    <CardDaerah daerah="Bateng"></CardDaerah>
-                    <CardDaerah daerah="Bateng"></CardDaerah>
-                    <CardDaerah daerah="Bateng"></CardDaerah>
-                    <CardDaerah daerah="Bateng"></CardDaerah>
-                    <CardDaerah daerah="Bateng"></CardDaerah>
+                    {props.daerah.length > 0 ? (
+                        props.daerah.map((value, index) => (
+                            <CardDaerah data={value}></CardDaerah>
+                        ))
+                    ) : (
+                        <div className="flex items-center gap-1 bg-gray-100 px-2 py-1 rounded">
+                            <p>gaada</p>
+                        </div>
+                    )}
                 </div>
             </div>
             <Footer></Footer>
