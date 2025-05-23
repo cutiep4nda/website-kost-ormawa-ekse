@@ -28,10 +28,36 @@ import {
 import { GiWashingMachine } from "react-icons/gi";
 import { RiFridgeFill } from "react-icons/ri";
 
+import OwlCarousel from "react-owl-carousel";
+import "owl.carousel/dist/assets/owl.carousel.css";
+import "owl.carousel/dist/assets/owl.theme.default.css";
+
 export default function Kos(props) {
     const data = props.data[0];
 
-    console.log(props);
+    const settings = {
+        loop: true,
+        autoplay: true,
+        autoplayTimeout: 3000,
+        autoplaySpeed: 1000,
+        autoplayHoverPause: true,
+        responsive: {
+            0: {
+                items: 1,
+                stagePadding: 0,
+            },
+            480: {
+                items: 2,
+                stagePadding: 50,
+            },
+        },
+        nav: false,
+        dots: false,
+        dotsSpeed: 500,
+        center: true,
+        autoWidth: true,
+        margin: 25,
+    };
 
     const processImages = () => {
         try {
@@ -174,7 +200,11 @@ export default function Kos(props) {
                 {/* Kolom Kiri: Info Kos */}
                 <div className="lg:col-span-2 space-y-4">
                     {/* Gambar utama */}
-                    <div className="h-80 rounded-md bg-gray-400 overflow-hidden">
+                    <div
+                        className="h-80 rounded-md bg-gray-400 overflow-hidden"
+                        data-aos="fade-up"
+                        data-aos-duration="800"
+                    >
                         <img
                             src={`${window.location.origin}/storage/${imageArray[0]}`}
                             alt=""
@@ -184,21 +214,42 @@ export default function Kos(props) {
 
                     {/* Nama Kos & Info */}
                     <div>
-                        <h1 className="text-2xl font-bold">{data.nama}</h1>
-                        <div className="flex items-center gap-2 text-sm text-gray-600 mt-1">
+                        <h1
+                            className="text-2xl font-bold"
+                            data-aos="fade-up"
+                            data-aos-duration="800"
+                        >
+                            {data.nama}
+                        </h1>
+                        <div
+                            className="flex items-center gap-2 text-sm text-gray-600 mt-1"
+                            data-aos="fade-up"
+                            data-aos-duration="800"
+                        >
                             <span className="bg-gray-100 px-2 py-1 rounded">
                                 Kos {props.jenis}
                             </span>
                             <span>• {props.daerah}</span>
                         </div>
-                        <div className="flex items-center justify-between mt-2">
+                        <div
+                            className="flex items-center justify-between mt-2"
+                            data-aos="fade-up"
+                            data-aos-duration="800"
+                            data-aos-delay="100"
+                        >
                             <span className="text-red-500 font-medium text-sm">
                                 Tersisa {data.stock} kamar
                             </span>
                         </div>
                     </div>
                     {/* Deskripsi */}
-                    <div className="">
+                    <div
+                        className=""
+                        data-aos="fade-up"
+                        data-aos-duration="800"
+                        data-aos-anchor-placement="top-bottom"
+                        data-aos-delay="200"
+                    >
                         <h1 className="text-lg font-bold mt-4 text-justify">
                             Deskripsi
                         </h1>
@@ -213,7 +264,11 @@ export default function Kos(props) {
 
                     {/* Fasilitas Kamar */}
                     <div>
-                        <h2 className="text-lg font-bold mt-4 mb-2">
+                        <h2
+                            className="text-lg font-bold mt-4 mb-2"
+                            data-aos="fade-up"
+                            data-aos-duration="800"
+                        >
                             Fasilitas Kamar
                         </h2>
                         <div className="grid grid-cols-2 md:grid-cols-2 gap-2 text-lg text-gray-700">
@@ -222,6 +277,8 @@ export default function Kos(props) {
                                     <div
                                         key={facility.key}
                                         className="flex items-center gap-1 bg-birumuda1/60 px-2 py-1 rounded text-black p-1"
+                                        data-aos="fade-up"
+                                        data-aos-duration="800"
                                     >
                                         <facility.icon className="text-xl" />
                                         <span className="text-base ml-2 font-semibold">
@@ -230,7 +287,11 @@ export default function Kos(props) {
                                     </div>
                                 ))
                             ) : (
-                                <div className="flex items-center gap-1 bg-gray-100 px-2 py-1 rounded">
+                                <div
+                                    className="flex items-center gap-1 bg-gray-100 px-2 py-1 rounded"
+                                    data-aos="fade-up"
+                                    data-aos-duration="800"
+                                >
                                     <FaEllipsisH className="text-gray-600 text-sm" />
                                     <span className="text-sm">
                                         Tidak ada fasilitas
@@ -242,7 +303,11 @@ export default function Kos(props) {
 
                     {/* Fasilitas Kos */}
                     <div>
-                        <h2 className="text-lg font-bold mt-4 mb-2">
+                        <h2
+                            className="text-lg font-bold mt-4 mb-2"
+                            data-aos="fade-up"
+                            data-aos-duration="800"
+                        >
                             Fasilitas Kos
                         </h2>
                         <div className="grid grid-cols-2 md:grid-cols-2 gap-2 text-lg text-gray-700">
@@ -250,6 +315,8 @@ export default function Kos(props) {
                                 f_kos.map((facility) => (
                                     <div
                                         key={facility.key}
+                                        data-aos="fade-up"
+                                        data-aos-duration="800"
                                         className="flex items-center gap-1 bg-birumuda1/60 px-2 py-1 rounded text-black p-1"
                                     >
                                         <facility.icon className="text-xl" />
@@ -274,14 +341,44 @@ export default function Kos(props) {
                 <div className="space-y-4">
                     {/* Galeri samping */}
                     <div className="space-y-4">
-                        <div className="bg-gray-300 h-40 rounded-md" />
-                        <div className="bg-gray-300 h-40 rounded-md flex items-center justify-center text-sm text-gray-700">
-                            Lainnya
+                        <div
+                            className="bg-gray-300 h-40 rounded-md overflow-hidden"
+                            data-aos="fade-left"
+                            data-aos-duration="800"
+                        >
+                            {imageArray.length > 1 ? (
+                                <img
+                                    className="w-full h-full object-cover"
+                                    src={`${window.location.origin}/storage/${imageArray[1]}`}
+                                ></img>
+                            ) : (
+                                <div className="">Tidak ada gambar</div>
+                            )}
+                        </div>
+                        <div
+                            className="bg-gray-300 h-40 rounded-md overflow-hidden"
+                            data-aos="fade-left"
+                            data-aos-duration="800"
+                            data-aos-delay="100"
+                        >
+                            {imageArray.length > 2 ? (
+                                <img
+                                    className="w-full h-full object-cover"
+                                    src={`${window.location.origin}/storage/${imageArray[2]}`}
+                                ></img>
+                            ) : (
+                                <div className="">Tidak ada gambar</div>
+                            )}
                         </div>
                     </div>
 
                     {/* Harga & Kontak */}
-                    <div className="bg-white shadow-md p-4 rounded-md">
+                    <div
+                        className="bg-white shadow-md p-4 rounded-md"
+                        data-aos="fade-left"
+                        data-aos-duration="800"
+                        data-aos-delay="200"
+                    >
                         <p className="text-lg font-semibold text-gray-800">
                             {formatRupiah(data.harga)}{" "}
                             <span className="text-sm text-gray-500">
@@ -302,7 +399,7 @@ export default function Kos(props) {
                     </div>
 
                     {/* Lokasi */}
-                    <div>
+                    <div data-aos="fade-up" data-aos-duration="800">
                         <h2 className="text-lg font-semibold mb-2">Lokasi</h2>
                         <div className="">
                             <div className="relative pb-[56.25%] h-0 w-full rounded-xl overflow-hidden shadow-lg">
@@ -333,10 +430,39 @@ export default function Kos(props) {
                 </div>
             </div>
 
-            <hr className="my-4 max-w-7xl mx-auto px-10 " />
+            <div
+                className="w-full md:px-10 px-4"
+                data-aos="fade-up"
+                data-aos-duration="800"
+            >
+                <OwlCarousel className="owl-theme" {...settings}>
+                    {imageArray.map((value, index) => (
+                        <div
+                            className="md:w-[500px] md:h-[300px] w-72 h-52 rounded-xl overflow-hidden"
+                            key={index}
+                        >
+                            <img
+                                src={`${window.location.origin}/storage/${value}`}
+                                alt=""
+                                className="w-full h-full object-cover"
+                            />
+                        </div>
+                    ))}
+                </OwlCarousel>
+            </div>
+
+            <hr
+                className="my-8 max-w-7xl mx-auto px-10 "
+                data-aos="fade-up"
+                data-aos-duration="800"
+            />
 
             <div className="px-4 md:px-10 flex flex-col gap- max-w-7xl mx-auto mb-10">
-                <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+                <div
+                    className="flex flex-col md:flex-row md:items-center md:justify-between gap-4"
+                    data-aos="fade-up"
+                    data-aos-duration="800"
+                >
                     <p className="font-bold text-2xl md:text-3xl">
                         Pilihan kos di{" "}
                         <span className="text-blue-500 font-bold">
@@ -364,7 +490,11 @@ export default function Kos(props) {
                             <CardBiasa key={index} data={data}></CardBiasa>
                         ))
                     ) : (
-                        <div className="flex items-center gap-1 bg-gray-100 px-2 py-1 rounded">
+                        <div
+                            className="flex items-center gap-1 bg-gray-100 px-2 py-1 rounded"
+                            data-aos="fade-up"
+                            data-aos-duration="800"
+                        >
                             <p>Tidak ada data kos di daerah ini</p>
                         </div>
                     )}

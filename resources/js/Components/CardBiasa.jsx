@@ -34,7 +34,7 @@ export default function CardBiasa(props) {
         kipas_angin: "Kipas Angin",
         lemari: "Lemari",
         km_dalam: "Kamar Mandi Dalam",
-        meja_belajar: "Meja Belajar",
+        meja_belajar: "Meja",
         kulkas: "Kulkas",
         p_motor: "Parkir Motor",
         mobil: "Parkir Mobil",
