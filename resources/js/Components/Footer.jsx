@@ -28,7 +28,7 @@ export default function Footer() {
                                 Biro Riset Pengembangan
                             </h3>
                             <p className="text-[#b8f2ff] text-sm">
-                                Ormawa PKU IPB 2024/2025
+                                Ormawa Eksekutif PKU IPB 2024/2025
                             </p>
                         </div>
                     </div>

@@ -78,13 +78,9 @@ export default function Home(props) {
         console.log("Nilai selectedDaerah berubah:", selectedDaerah);
     }, [selectedDaerah]);
     const [showDropdown, setShowDropdown] = useState(false);
-    const [selectedGender, setSelectedGender] = useState("");
-    const [minPrice, setMinPrice] = useState(0);
-    const [maxPrice, setMaxPrice] = useState(0);
     const [selectedFacilities, setSelectedFacilities] = useState([]);
     const [searchTerm, setSearchTerm] = useState("");
     const [isLoading, setIsLoading] = useState(false);
-    const [error, setError] = useState(null);
 
     // Fungsi untuk handle perubahan daerah
     const handleDaerahChange = (daerah) => {
@@ -146,7 +142,37 @@ export default function Home(props) {
         });
     };
 
-    // console.log(props.kost);
+    const premium = [
+        {
+            id: 1,
+            gambar: "images/premium1/kos.jpeg",
+            nama: "Kost Asik",
+            daerah: "Balio",
+            jenis: "Putra",
+            fasilitas: "TV, Looby, AC, KM dalam",
+            link: "premium",
+        },
+        {
+            id: 2,
+            gambar: "images/premium1/kos.jpeg",
+            nama: "Kost ASOyYY",
+            jenis: "Putri",
+            daerah: "Balebak",
+            fasilitas: "TV, Looby, AC, KM dalam",
+            link: "premium",
+        },
+        {
+            id: 3,
+            gambar: "images/premium1/kos.jpeg",
+            nama: "Kost ASIK KALI",
+            jenis: "Putra",
+            daerah: "Perwira",
+            fasilitas: "TV, Looby, AC, KM dalam",
+            link: "premium",
+        },
+    ];
+
+    console.log(premium);
     return (
         <div className="">
             {/*{/* <!-- Buat Mobile  */}
@@ -181,23 +207,13 @@ export default function Home(props) {
                                 Risbang Investigation
                             </p>
                             <p className="text-birutua1 text-justify text-sm md:text-base">
-                                Lorem ipsum dolor sit amet consectetur
-                                adipisicing elit. Laudantium, inventore corrupti
-                                aut quos voluptate nesciunt suscipit itaque
-                                quod, deserunt commodi eveniet nulla temporibus.
-                                Temporibus animi incidunt id a veritatis sed
-                                est, repudiandae, nesciunt fugiat obcaecati
-                                corrupti. Porro eos consequuntur saepe in quia
-                                tempora iure est eius vel pariatur accusantium,
-                                aliquid ex incidunt molestias cumque optio
-                                explicabo iusto architecto nemo laudantium? Nemo
-                                debitis sapiente, facere facilis distinctio
-                                officiis provident obcaecati explicabo. Tempore
-                                aliquam deserunt aut exercitationem consectetur
-                                voluptate officia natus ducimus deleniti. Ex
-                                officia saepe, animi illum, ducimus eaque unde
-                                quos rerum corrupti sapiente minus ad sit.
-                                Beatae vitae quaerat autem.
+                                Program kerja yang bertujuan untuk melakukan
+                                survei terkait pemilihan kos bagi mahasiswa baru
+                                IPB University dengan mengumpulkan data lokasi,
+                                harga, dan fasilitas kos. Data yang terkumpul
+                                akan dianalisis dan hasilnya akan dipublikasikan
+                                untuk membantu mahasiswa baru dalam memilih kos
+                                yang sesuai
                             </p>
                         </div>
                     </div>
@@ -255,10 +271,19 @@ export default function Home(props) {
                 data-aos-duration="800"
             >
                 <OwlCarousel className="owl-theme" {...settings}>
-                    <CardPremium link="premium"></CardPremium>
-                    <CardPremium link="premium"></CardPremium>
-                    <CardPremium link="premium"></CardPremium>
-                    <CardPremium link="premium"></CardPremium>
+                    {premium.length > 0 ? (
+                        premium.map((value, index) => (
+                            <CardPremium
+                                link="premium"
+                                key={index}
+                                data={value}
+                            ></CardPremium>
+                        ))
+                    ) : (
+                        <div className="flex items-center gap-1 bg-gray-100 px-2 py-1 rounded">
+                            <p>gaada</p>
+                        </div>
+                    )}
                 </OwlCarousel>
 
                 <div className="">

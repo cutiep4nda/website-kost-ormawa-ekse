@@ -2,27 +2,29 @@ import { Link } from "@inertiajs/react";
 import React from "react";
 
 export default function CardPremium(props) {
+    console.log(props.data);
+    const data = props.data;
     return (
-        <Link className="Card" href={props.link}>
+        <Link className="Card" href={data.link}>
             <div className="md:w-[450px] bg-white rounded-xl overflow-hidden shadow-md">
                 {/*    <!-- Gambar kos  */}
                 <div className="relative">
                     <img
-                        src="img/gambar/kos.jpeg"
+                        src={data.gambar}
                         alt="Kosan"
                         className="w-full h-48 object-cover"
                     />
 
                     {/*    <!-- Label Putra/Putri  */}
                     <span className="absolute bottom-2 left-2 bg-white text-black text-xs font-semibold px-2 py-1 rounded shadow">
-                        Putra
+                        {data.jenis}
                     </span>
                 </div>
 
                 {/*    <!-- Konten  */}
                 <div className="p-4">
                     <h3 className="text-lg font-semibold text-black">
-                        Nama Kosan Nama Kosan
+                        {data.nama}
                     </h3>
 
                     <p className="flex items-center text-sm text-black font-semibold mt-1">
@@ -47,11 +49,11 @@ export default function CardPremium(props) {
                                 d="M12 22s8-4.5 8-10c0-4.418-3.582-8-8-8S4 7.582 4 12c0 5.5 8 10 8 10z"
                             />
                         </svg>
-                        Nama daerah
+                        {data.daerah}
                     </p>
 
                     <p className="text-sm text-gray-600 mt-1">
-                        Kamar mandi dalam, WiFi, AC, Kasur
+                        {data.fasilitas}
                     </p>
                 </div>
             </div>
