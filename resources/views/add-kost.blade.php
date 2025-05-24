@@ -158,6 +158,20 @@
                                 <input type="checkbox" name="meja_belajar" value=1>
                             </td>
                         </tr>
+                        <tr>
+                            <td>Shower</td>
+                            <td>:</td>
+                            <td>
+                                <input type="checkbox" name="shower" value=1>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Water Heater</td>
+                            <td>:</td>
+                            <td>
+                                <input type="checkbox" name="water_heater" value=1>
+                            </td>
+                        </tr>
                     </table>
                 </td>
             </tr>

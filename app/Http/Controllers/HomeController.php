@@ -35,8 +35,6 @@ class HomeController extends Controller
                 'pemilik' => $value->pemilik->nama_pemilik
             ));
         }
-
-
         // dd($data_kost_daerah);
         $daerah = Daerah::all();
         return Inertia::render('Home', ['kost' => $data_kost,'daerah' => $daerah, 'kost_daerah' => $data_kost_daerah]);
