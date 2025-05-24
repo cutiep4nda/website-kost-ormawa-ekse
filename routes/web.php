@@ -32,6 +32,11 @@ Route::middleware("auth:admin")->group(function(){
     Route::get('/dashboard', [AdminController::class, "dashboard"])->name("dashboard");
     Route::get('/add-kost', [AdminController::class, "addKostPage"])->name('add-kost');
     Route::post('/add-kost', [AdminController::class, "addKost"]);
+
+    Route::get('edit-kost/{id}', [AdminController::class, 'editKostPage'])->name('edit-kost');
+    Route::post('/edit-kost/{id}', [AdminController::class, 'editKost'])->name('edit-kost-post');
+
+    Route::post('/delete-kost/{id}', [AdminController::class, 'deleteKost'])->name('delete-kost');
 });
 
 Route::get('/kost/{id}', [KostController::class, "kost"])->name("kost");

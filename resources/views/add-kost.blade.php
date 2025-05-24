@@ -84,10 +84,10 @@
                 </td>
             </tr>
             <tr>
-                <td>wa_text</td>
+                <td>No telepon (WA)</td>
                 <td>:</td>
                 <td>
-                    <input type="text" name="wa_text">
+                    <input type="text" name="no_telp">
                 </td>
             </tr>
             <tr>
@@ -227,6 +227,47 @@
                             <td>:</td>
                             <td>
                                 <input type="checkbox" name="wifi" value=1>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Kamar Mandi Luar</td>
+                            <td>:</td>
+                            <td>
+                                <input type="checkbox" name="km_luar" value=1>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>TV</td>
+                            <td>:</td>
+                            <td>
+                                <input type="checkbox" name="tv" value=1>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>CCTV</td>
+                            <td>:</td>
+                            <td>
+                                <input type="checkbox" name="cctv" value=1>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Lobby</td>
+                            <td>:</td>
+                            <td>
+                                <input type="checkbox" name="lobby" value=1>
+                            </td>
+                        </tr><tr>
+                            <td>Ruang Jemur</td>
+                            <td>:</td>
+                            <td>
+                                <input type="checkbox" name="r_jemur" value=1>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Mesin Cuci</td>
+                            <td>:</td>
+                            <td>
+                                <input type="checkbox" name="mesin_cuci" value=1>
                             </td>
                         </tr>
                         <tr>

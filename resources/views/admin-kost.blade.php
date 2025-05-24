@@ -33,7 +33,11 @@
                     {{ $a->pemilik->nama_pemilik }}
                 </td>
                 <td>
-                    <a href="edit">Edit</a>
+                    <a href="{{ route('edit-kost', $a->id) }}">Edit</a>
+                    <form action="{{ route('delete-kost', $a->id) }}" method="POST">
+                        @csrf
+                        <input type="submit" value="delete">
+                    </form>
                 </td>
             </tr>
         @endforeach

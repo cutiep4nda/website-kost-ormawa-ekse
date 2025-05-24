@@ -34,7 +34,8 @@ class Kost extends Seeder
             'harga' => 1000000,
             'deskripsi' => "lorem ipsum dolor sit amet",
             'meja_belajar' => 1,
-            'gambar' => '["images\/gambar-1.jpg", "images\/gambar-2.jpg", "images\/gambar-3.jpg"]'
+            'gambar' => '["images\/gambar-1.jpg", "images\/gambar-2.jpg", "images\/gambar-3.jpg"]',
+            'no_telp' => '0895402965052'
         ]);
     }
 }
