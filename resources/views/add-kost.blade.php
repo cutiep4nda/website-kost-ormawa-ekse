@@ -28,6 +28,13 @@
                 </td>
             </tr>
             <tr>
+                <td>Alamat</td>
+                <td>:</td>
+                <td>
+                    <input type="text" name="alamat">
+                </td>
+            </tr>
+            <tr>
                 <td>Harga</td>
                 <td>:</td>
                 <td>

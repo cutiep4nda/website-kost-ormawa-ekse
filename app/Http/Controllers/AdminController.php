@@ -44,15 +44,16 @@ class AdminController extends Controller
     }
     public function addKost(Request $request){
         // $data = $request;
+        // dd($data);
         $request->validate([
             'nama' => 'required',
+            'alamat' => 'required',
             'harga' => 'required',
             'stock' => 'required',
             'deskripsi' => 'required',
             'jenis_id' => 'required',
             'daerah_id' => 'required',
             'pemilik_id' => 'required',
-            'wa_text' => 'required',
             'gambar' => 'required|array',
             'gambar.*' => 'required|image|mimes:jpeg,png,jpg,gif|max:10000',
             'no_telp' => 'required'
@@ -67,6 +68,7 @@ class AdminController extends Controller
             }
         }
         // dd($request->pemilik_notfound);
+        // dd($data);
         if($request->pemilik_notfound != null){
             // echo "yes";
             // dd();

@@ -24,6 +24,7 @@
 
     <form action="{{ route('edit-kost-post', $data->id) }}" method="post">
         @csrf
+        alamat : <input type="text" name="alamat" value="{{ $data->alamat }}">
         harga : <input type="number" name="harga" value="{{ $data->harga }}"></br>
         sisa : <input type="number" name="stock" value="{{ $data->stock }}"></br>
         deskripsi : <textarea name="deskripsi">{{ $data->deskripsi }}</textarea></br>
