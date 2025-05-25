@@ -81,8 +81,7 @@ export default function Kos(props) {
     const imageArray = processImages();
     // console.log("Processed images:", imageArray);
 
-    let alamat =
-        "Jl. Cilubang, RT.02/RW.08, Balungbangjaya, Kec. Bogor Bar., Kota Bogor, Jawa Barat";
+    let alamat = data.alamat;
 
     let jenis_kost = ["Putra", "Putri", "Campur"];
     let nama_daerah = ["Balebak"];
@@ -411,19 +410,6 @@ export default function Kos(props) {
                                     allowFullScreen
                                     loading="lazy"
                                 />
-                            </div>
-                            <div className="mt-3">
-                                <a
-                                    href={
-                                        alamat?.replace("embed", "view") || "#"
-                                    }
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className="text-[#248da8] hover:text-[#16cdd8] flex items-center"
-                                >
-                                    <FaExternalLinkAlt className="mr-2" />
-                                    Buka di Google Maps
-                                </a>
                             </div>
                         </div>
                     </div>
