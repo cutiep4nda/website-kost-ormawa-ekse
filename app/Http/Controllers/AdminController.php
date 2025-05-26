@@ -140,6 +140,7 @@ class AdminController extends Controller
 
     public function editKost(Request $request, $id){
         $data = $request->request;
+        // dd($data);
         $data_extracted = [];
         foreach ($data as $key => $value) {
             if($key != '_token'){
@@ -147,9 +148,13 @@ class AdminController extends Controller
             }
         }
         $success = Kost::where('id', $id)->update($data_extracted);
+<<<<<<< HEAD
         return redirect()->route('dashboard')->with('success', 'data berhasil diedit');
 
 
+=======
+        return redirect()->route('dashboard');
+>>>>>>> fd267d45b7f5e1d3181d06a3ac71895474a3432a
     }
     public function deleteKost($id){
         // dd($id);
