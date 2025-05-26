@@ -51,7 +51,7 @@ return new class extends Migration
             // identitas
             $table->string("nama");
             $table->string('no_telp');
-            $table->string('alamat');
+            // $table->string('alamat');
             $table->bigInteger("harga");
             $table->json("gambar")->nullable();
             $table->longText("deskripsi");

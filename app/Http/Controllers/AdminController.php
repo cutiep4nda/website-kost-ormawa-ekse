@@ -147,6 +147,8 @@ class AdminController extends Controller
             }
         }
         $success = Kost::where('id', $id)->update($data_extracted);
+        return redirect()->route('dashboard')->with('success', 'data berhasil diedit');
+
 
     }
     public function deleteKost($id){
