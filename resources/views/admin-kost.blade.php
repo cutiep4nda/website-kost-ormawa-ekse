@@ -34,6 +34,10 @@
                 Tambah Kost
             </a>
         </div>
+        <form action="{{ route('logout') }}" method="POST">
+            @csrf
+            <input type="submit" value="Logout">
+        </form>
 
         <!-- Kost Table -->
         <div class="bg-white rounded-xl shadow-lg overflow-hidden">

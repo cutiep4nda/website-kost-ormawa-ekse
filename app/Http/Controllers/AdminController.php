@@ -27,6 +27,15 @@ class AdminController extends Controller
             'error' => 'The provided credentials do not match our records.',
         ]);
     }
+
+    public function logout(Request $request){
+        Auth::logout();
+ 
+        $request->session()->invalidate();
+    
+        $request->session()->regenerateToken();
+        return redirect()->route('home');
+    }
     public function dashboard(){
         $data = Kost::all();
         return view('admin-kost', ['data' => $data]);
@@ -148,13 +157,7 @@ class AdminController extends Controller
             }
         }
         $success = Kost::where('id', $id)->update($data_extracted);
-<<<<<<< HEAD
-        return redirect()->route('dashboard')->with('success', 'data berhasil diedit');
-
-
-=======
         return redirect()->route('dashboard');
->>>>>>> fd267d45b7f5e1d3181d06a3ac71895474a3432a
     }
     public function deleteKost($id){
         // dd($id);
