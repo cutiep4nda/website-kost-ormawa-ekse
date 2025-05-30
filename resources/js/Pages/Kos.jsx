@@ -253,10 +253,6 @@ export default function Kos(props) {
                             Deskripsi
                         </h1>
                         <p className="text-justify">
-                            Lorem ipsum dolor sit amet consectetur adipisicing
-                            elit. Magni accusamus debitis quo aperiam doloribus
-                            iure cupiditate et facere eligendi cumque optio,
-                            quod atque nostrum repellendus cum, qui amet.
                             {data.deskripsi}
                         </p>
                     </div>
