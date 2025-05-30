@@ -43,9 +43,6 @@ export default function Semua(props) {
                         </div>
                     )}
                 </div>
-                <div className="flex justify-center mb-10">
-                    <p>Pokoknya paginasi</p>
-                </div>
             </div>
 
             <Footer></Footer>
