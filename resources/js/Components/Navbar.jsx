@@ -27,6 +27,15 @@ export default function Navbar({ initialFilters = {} }) {
     const [maxPrice, setMaxPrice] = useState(initialFilters.max_price || "");
     const [searchTerm, setSearchTerm] = useState(initialFilters.search || "");
     const [isLoading, setIsLoading] = useState(false);
+    const [debouncedTerm, setDebouncedTerm] = useState(searchTerm);
+  useEffect(() => {
+    const handler = setTimeout(() => {
+      setDebouncedTerm(searchTerm);
+    }, 200);
+    return () => {
+      clearTimeout(handler);
+    };
+  }, [searchTerm]);
     
     const Daerah = [
         {
@@ -54,7 +63,7 @@ export default function Navbar({ initialFilters = {} }) {
 
         // Create the filter object with only non-empty values
         const filters = {
-            search: searchTerm || "",
+            search: debouncedTerm || "",
             gender: selectedGender || "",
             min_price: minPrice || 0,
             max_price: maxPrice || 0,
@@ -101,7 +110,7 @@ export default function Navbar({ initialFilters = {} }) {
             maxPrice,
             selectedFacilities,
         });
-    }, [searchTerm, selectedGender, minPrice, maxPrice, selectedFacilities]);
+    }, [debouncedTerm, selectedGender, minPrice, maxPrice, selectedFacilities]);
 
     return (
         <div className="bg-birumuda1 w-full px-4 sm:px-6 md:px-10 py-3 md:py-0">
