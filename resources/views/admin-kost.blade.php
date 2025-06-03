@@ -26,18 +26,32 @@
     <div class="container mx-auto px-4 py-8">
         <!-- Header Section -->
         <div class="flex justify-between items-center mb-8">
-            <h1 class="text-3xl font-bold text-birutua1">Dashboard Admin</h1>
-            <a href="/add-kost" class="bg-biru hover:bg-birutua2 text-white px-4 py-2 rounded-lg transition duration-300 flex items-center">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-1" viewBox="0 0 20 20" fill="currentColor">
-                    <path fill-rule="evenodd" d="M10 5a1 1 0 011 1v3h3a1 1 0 110 2h-3v3a1 1 0 11-2 0v-3H6a1 1 0 110-2h3V6a1 1 0 011-1z" clip-rule="evenodd" />
-                </svg>
-                Tambah Kost
-            </a>
+            <div>
+                <h1 class="text-3xl font-bold text-birutua1">Dashboard Admin</h1>
+                <p class="text-gray-500 text-sm mt-1">Kelola data kost dan pengguna</p>
+            </div>
+            
+            <div class="flex items-center space-x-4">
+                <!-- Logout Button -->
+                <form action="{{ route('logout') }}" method="POST" class="m-0">
+                    @csrf
+                    <button type="submit" class="flex items-center text-gray-600 hover:text-red-500 transition duration-300">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
+                        </svg>
+                        Logout
+                    </button>
+                </form>
+        
+                <!-- Add Kost Button -->
+                <a href="/add-kost" class="bg-biru hover:bg-birutua2 text-white px-4 py-2 rounded-lg transition duration-300 flex items-center shadow-md hover:shadow-lg">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-1" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd" d="M10 5a1 1 0 011 1v3h3a1 1 0 110 2h-3v3a1 1 0 11-2 0v-3H6a1 1 0 110-2h3V6a1 1 0 011-1z" clip-rule="evenodd" />
+                    </svg>
+                    Tambah Kost
+                </a>
+            </div>
         </div>
-        <form action="{{ route('logout') }}" method="POST">
-            @csrf
-            <input type="submit" value="Logout">
-        </form>
 
         <!-- Kost Table -->
         <div class="bg-white rounded-xl shadow-lg overflow-hidden">

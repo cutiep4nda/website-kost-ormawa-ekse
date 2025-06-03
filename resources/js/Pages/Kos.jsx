@@ -252,9 +252,7 @@ export default function Kos(props) {
                         <h1 className="text-lg font-bold mt-4 text-justify">
                             Deskripsi
                         </h1>
-                        <p className="text-justify">
-                            {data.deskripsi}
-                        </p>
+                        <p className="text-justify">{data.deskripsi}</p>
                     </div>
 
                     {/* Fasilitas Kamar */}
@@ -458,8 +456,6 @@ export default function Kos(props) {
                         >
                             Lihat semua
                         </Link>
-                        <p>kiri</p>
-                        <p>kanan</p>
                     </div>
                 </div>
 

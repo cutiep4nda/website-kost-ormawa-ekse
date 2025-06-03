@@ -28,14 +28,48 @@ const kostData = [
         price: 1200000,
         type: "Putri",
         remaining: 3,
-        image_landing: "/img/gambar/kos.jpeg",
-        alamat: "Jl. Cilubang, RT.02/RW.08, Balungbangjaya, Kec. Bogor Bar., Kota Bogor, Jawa Barat",
+        image_landing:
+            "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
+        alamat: "dufan ancol",
         images: [
-            "/img/gambar/kos.jpeg",
-            "/img/gambar/kos.jpeg",
-            "/img/gambar/kos.jpeg",
+            "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
+            "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
+            "https://images.unsplash.com/photo-1583847268964-b28dc8f51f92?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
+            "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
+            "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
+            "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
+            "https://images.unsplash.com/photo-1583847268964-b28dc8f51f92?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
+            "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
         ],
-        desk_singkat: "Kost enak banget parah gesss",
+        desk_singkat: "Kost nyaman dekat dengan kampus",
+        deskripsi:
+            "Kos Harmoni Asri menawarkan lingkungan yang nyaman dan tenang untuk mahasiswi dan profesional muda. Lokasi strategis dekat dengan kampus dan pusat kota.",
+        facilities: [
+            { name: "Kamar Mandi Dalam", icon: FaBath },
+            { name: "Kasur", icon: FaBed },
+            { name: "Meja Belajar", icon: FaCoffee },
+            { name: "WiFi", icon: FaWifi },
+            { name: "AC", icon: FaSnowflake },
+        ],
+    },
+    {
+        id: 2,
+        name: "Kos Harmoni Asri 2",
+        location: "Jl. Merdeka No. 123, Bandung",
+        wa: "628327893273",
+        daerah: "Balebak",
+        price: 1200000,
+        type: "Putri",
+        remaining: 3,
+        image_landing:
+            "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
+        alamat: "dufan ancol",
+        images: [
+            "https://images.unsplash.com/photo-1513694203232-719a280e022f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80", // HD luxury living room
+            "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80", // HD bathroom
+            "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80", // HD kitchen area
+        ],
+        desk_singkat: "Kost nyaman dekat dengan kampus",
         deskripsi:
             "Kos Harmoni Asri menawarkan lingkungan yang nyaman dan tenang untuk mahasiswi dan profesional muda. Lokasi strategis dekat dengan kampus dan pusat kota.",
         facilities: [
@@ -47,11 +81,10 @@ const kostData = [
         ],
     },
 ];
-
 // Landing Page Component
 const KostLandingPage = () => {
     const [isScrolled, setIsScrolled] = useState(false);
-    const kost = kostData[0];
+    const kost1 = kostData[0];
 
     useEffect(() => {
         const handleScroll = () => {
@@ -71,7 +104,7 @@ const KostLandingPage = () => {
             {/* Background Image with Overlay */}
             <div className="absolute inset-0 z-0">
                 <img
-                    src={kost.image_landing}
+                    src={kost1.image_landing}
                     alt="Kos Hero"
                     className="w-full h-full object-cover"
                 />
@@ -82,11 +115,11 @@ const KostLandingPage = () => {
             <div className="relative z-10 h-full flex flex-col justify-center items-center text-white px-4 py-10 md:py-0 sm:px-8">
                 <div className="max-w-4xl mx-auto text-center">
                     <h1
-                        className="text-4xl sm:text-5xl md:text-6xl font-bold mb-6"
+                        className="text-4xl sm:text-5xl md:text-7xl font-bold mb-6"
                         data-aos="fade-up"
                         data-aos-duration="800"
                     >
-                        {kost.name}
+                        {kost1.name}
                     </h1>
                     <p
                         className="text-xl md:text-2xl mb-8 font-light max-w-2xl mx-auto"
@@ -94,28 +127,28 @@ const KostLandingPage = () => {
                         data-aos-duration="800"
                         data-aos-delay="100"
                     >
-                        {kost.desk_singkat}
+                        {kost1.desk_singkat}
                     </p>
 
                     {/* Highlights */}
                     <div
-                        className="flex flex-wrap justify-center gap-6 md:gap-12 mb-8"
+                        className="flex flex-wrap justify-center gap-6 md:gap-6 mb-8"
                         data-aos="fade-up"
                         data-aos-duration="800"
                         data-aos-delay="200"
                     >
                         <div className="flex items-center text-[#16cdd8]">
                             <FaMapMarkerAlt className="mr-2" />
-                            <span>{kost.location}</span>
+                            <span>{kost1.alamat}</span>
                         </div>
                         <div className="flex items-center text-[#16cdd8]">
                             <FaMapMarkerAlt className="mr-2" />
                             <span>Balebak</span>
                         </div>
 
-                        <div className="flex items-center text-[#16cdd8]">
+                        <div className="flex items-center text-[#16cdd8] text-2xl">
                             <span className="font-bold">
-                                Rp {kost.price.toLocaleString("id-ID")}
+                                Rp {kost1.price.toLocaleString("id-ID")}
                             </span>
                             <span className="ml-1">/bulan</span>
                         </div>
@@ -130,7 +163,7 @@ const KostLandingPage = () => {
                         data-aos-duration="800"
                         data-aos-delay="300"
                     >
-                        {kost.facilities.slice(0, 4).map((facility, index) => (
+                        {kost1.facilities.slice(0, 4).map((facility, index) => (
                             <div
                                 key={index}
                                 className="bg-white/10 backdrop-blur-sm px-4 py-2 rounded-lg flex items-center"
@@ -172,17 +205,29 @@ const KostLandingPage = () => {
 
 export default function Premium1() {
     const [currentImageIndex, setCurrentImageIndex] = useState(0);
-    const kost = kostData[0];
+    const kost1 = kostData[0];
+    const kost2 = kostData[1];
 
-    const nextImage = () => {
+    const nextImage1 = () => {
         setCurrentImageIndex((prev) =>
-            prev === kost.images.length - 1 ? 0 : prev + 1
+            prev === kost1.images.length - 1 ? 0 : prev + 1
         );
     };
 
-    const prevImage = () => {
+    const prevImage1 = () => {
         setCurrentImageIndex((prev) =>
-            prev === 0 ? kost.images.length - 1 : prev - 1
+            prev === 0 ? kost1.images.length - 1 : prev - 1
+        );
+    };
+    const nextImage2 = () => {
+        setCurrentImageIndex((prev) =>
+            prev === kost2.images.length - 1 ? 0 : prev + 1
+        );
+    };
+
+    const prevImage2 = () => {
+        setCurrentImageIndex((prev) =>
+            prev === 0 ? kost2.images.length - 1 : prev - 1
         );
     };
 
@@ -201,30 +246,29 @@ export default function Premium1() {
                 <div className="relative rounded-2xl overflow-hidden shadow-xl mb-8 bg-white border-birutua1 border-[1px]">
                     <div className="relative h-96 md:h-[500px]">
                         <img
-                            src={kost.images[currentImageIndex]}
-                            // src={`${window.location.origin}/${kost.images[currentImageIndex]}`}
-                            alt={`${kost.name} view ${currentImageIndex + 1}`}
+                            src={kost1.images[currentImageIndex]}
+                            alt={`${kost1.name} view ${currentImageIndex + 1}`}
                             className="w-full h-full object-cover"
                             data-aos="fade-up"
                             data-aos-duration="800"
                         />
 
                         <button
-                            onClick={prevImage}
+                            onClick={prevImage1}
                             className="absolute left-4 top-1/2 -translate-y-1/2 bg-white/80 p-2 rounded-full text-[#003459] hover:bg-white transition"
                         >
                             <IoChevronBackOutline size={24} />
                         </button>
 
                         <button
-                            onClick={nextImage}
+                            onClick={nextImage1}
                             className="absolute right-4 top-1/2 -translate-y-1/2 bg-white/80 p-2 rounded-full text-[#003459] hover:bg-white transition"
                         >
                             <IoChevronForwardOutline size={24} />
                         </button>
 
                         <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex space-x-2">
-                            {kost.images.map((_, index) => (
+                            {kost1.images.map((_, index) => (
                                 <button
                                     key={index}
                                     className={`w-3 h-3 rounded-full ${
@@ -247,7 +291,7 @@ export default function Premium1() {
                                     data-aos="fade-up"
                                     data-aos-duration="800"
                                 >
-                                    {kost.name}
+                                    {kost1.name}
                                 </h1>
                                 <div
                                     className="flex items-center mt-2 text-gray-600"
@@ -258,7 +302,7 @@ export default function Premium1() {
                                         size={16}
                                         className="mr-1 text-[#248da8]"
                                     />
-                                    <span>{kost.location}</span>
+                                    <span>{kost1.alamat}</span>
                                 </div>
                             </div>
                             <div
@@ -267,10 +311,10 @@ export default function Premium1() {
                                 data-aos-duration="800"
                             >
                                 <div className="text-[#003459] font-bold text-xl">
-                                    {kost.type}
+                                    {kost1.type}
                                 </div>
                                 <div className="text-[#248da8] text-sm">
-                                    Sisa {kost.remaining} kamar
+                                    Sisa {kost1.remaining} kamar
                                 </div>
                             </div>
                         </div>
@@ -283,7 +327,7 @@ export default function Premium1() {
                             <div className="flex items-center text-yellow-500 mr-2">
                                 <FaLocationArrow size={18} />
                                 <span className="ml-2 font-semibold text-[#003459]">
-                                    {kost.daerah}
+                                    {kost1.daerah}
                                 </span>
                             </div>
                         </div>
@@ -302,14 +346,14 @@ export default function Premium1() {
                                 data-aos-duration="800"
                             >
                                 <h2 className="text-2xl font-bold text-[#003459]">
-                                    Rp {kost.price.toLocaleString("id-ID")}
+                                    Rp {kost1.price.toLocaleString("id-ID")}
                                     <span className="text-gray-500 text-lg font-normal">
                                         /bulan
                                     </span>
                                 </h2>
                                 <a
                                     className="bg-[#248da8] text-white px-6 py-3 rounded-lg hover:bg-[#16cdd8] transition font-semibold"
-                                    href={`wa.me/${kost.wa}`}
+                                    href={`https://wa.me/${kost1.wa}`}
                                 >
                                     Pesan Sekarang
                                 </a>
@@ -327,7 +371,7 @@ export default function Premium1() {
                                 data-aos="fade-up"
                                 data-aos-duration="800"
                             >
-                                {kost.deskripsi}
+                                {kost1.deskripsi}
                             </p>
                         </div>
                         <div className="flex gap-4 md:flex-row flex-col">
@@ -341,7 +385,7 @@ export default function Premium1() {
                                     Fasilitas
                                 </h3>
                                 <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-                                    {kost.facilities.map((facility, index) => (
+                                    {kost1.facilities.map((facility, index) => (
                                         <div
                                             key={index}
                                             className="flex items-center bg-[#b8f2ff]/30 p-3 rounded-lg"
@@ -375,7 +419,7 @@ export default function Premium1() {
                                 >
                                     <iframe
                                         src={`https://maps.google.com/maps?q=${encodeURIComponent(
-                                            kost.alamat
+                                            kost1.alamat
                                         )}&output=embed`}
                                         className="absolute top-0 left-0 w-full h-full border-0"
                                         allowFullScreen
@@ -385,7 +429,214 @@ export default function Premium1() {
                                 <div className="mt-3">
                                     <a
                                         href={
-                                            kost.alamat?.replace(
+                                            kost1.alamat?.replace(
+                                                "embed",
+                                                "view"
+                                            ) || "#"
+                                        }
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="text-[#248da8] hover:text-[#16cdd8] flex items-center"
+                                    >
+                                        <FaExternalLinkAlt className="mr-2" />
+                                        Buka di Google Maps
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+
+            <main className="container mx-auto px-4 pt-8">
+                {/* Hero Section with Image Carousel */}
+                <div className="relative rounded-2xl overflow-hidden shadow-xl mb-8 bg-white border-birutua1 border-[1px]">
+                    <div className="relative h-96 md:h-[500px]">
+                        <img
+                            src={kost2.images[currentImageIndex]}
+                            alt={`${kost2.name} view ${currentImageIndex + 1}`}
+                            className="w-full h-full object-cover"
+                            data-aos="fade-up"
+                            data-aos-duration="800"
+                        />
+
+                        <button
+                            onClick={prevImage2}
+                            className="absolute left-4 top-1/2 -translate-y-1/2 bg-white/80 p-2 rounded-full text-[#003459] hover:bg-white transition"
+                        >
+                            <IoChevronBackOutline size={24} />
+                        </button>
+
+                        <button
+                            onClick={nextImage2}
+                            className="absolute right-4 top-1/2 -translate-y-1/2 bg-white/80 p-2 rounded-full text-[#003459] hover:bg-white transition"
+                        >
+                            <IoChevronForwardOutline size={24} />
+                        </button>
+
+                        <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex space-x-2">
+                            {kost2.images.map((_, index) => (
+                                <button
+                                    key={index}
+                                    className={`w-3 h-3 rounded-full ${
+                                        index === currentImageIndex
+                                            ? "bg-[#16cdd8]"
+                                            : "bg-white/60"
+                                    }`}
+                                    onClick={() => setCurrentImageIndex(index)}
+                                />
+                            ))}
+                        </div>
+                    </div>
+
+                    {/* Kos Information */}
+                    <div className="p-6">
+                        <div className="flex justify-between items-start mb-4">
+                            <div>
+                                <h1
+                                    className="text-3xl font-bold text-[#003459]"
+                                    data-aos="fade-up"
+                                    data-aos-duration="800"
+                                >
+                                    {kost2.name}
+                                </h1>
+                                <div
+                                    className="flex items-center mt-2 text-gray-600"
+                                    data-aos="fade-up"
+                                    data-aos-duration="800"
+                                >
+                                    <FaMapMarkerAlt
+                                        size={16}
+                                        className="mr-1 text-[#248da8]"
+                                    />
+                                    <span>{kost2.alamat}</span>
+                                </div>
+                            </div>
+                            <div
+                                className="bg-[#16cdd8]/10 px-4 py-2 rounded-lg"
+                                data-aos="fade-up"
+                                data-aos-duration="800"
+                            >
+                                <div className="text-[#003459] font-bold text-xl">
+                                    {kost2.type}
+                                </div>
+                                <div className="text-[#248da8] text-sm">
+                                    Sisa {kost2.remaining} kamar
+                                </div>
+                            </div>
+                        </div>
+
+                        <div
+                            className="flex items-center mb-6"
+                            data-aos="fade-up"
+                            data-aos-duration="800"
+                        >
+                            <div className="flex items-center text-yellow-500 mr-2">
+                                <FaLocationArrow size={18} />
+                                <span className="ml-2 font-semibold text-[#003459]">
+                                    {kost2.daerah}
+                                </span>
+                            </div>
+                        </div>
+
+                        <hr
+                            className="my-6 border-gray-200"
+                            data-aos="fade-up"
+                            data-aos-duration="800"
+                        />
+
+                        {/* Price & deskripsi */}
+                        <div className="mb-8">
+                            <div
+                                className="flex justify-between items-center mb-4"
+                                data-aos="fade-up"
+                                data-aos-duration="800"
+                            >
+                                <h2 className="text-2xl font-bold text-[#003459]">
+                                    Rp {kost2.price.toLocaleString("id-ID")}
+                                    <span className="text-gray-500 text-lg font-normal">
+                                        /bulan
+                                    </span>
+                                </h2>
+                                <a
+                                    className="bg-[#248da8] text-white px-6 py-3 rounded-lg hover:bg-[#16cdd8] transition font-semibold"
+                                    href={`https://wa.me/${kost2.wa}`}
+                                >
+                                    Pesan Sekarang
+                                </a>
+                            </div>
+
+                            <h3
+                                className="text-xl font-semibold text-[#003459] mb-2"
+                                data-aos="fade-up"
+                                data-aos-duration="800"
+                            >
+                                Deskripsi
+                            </h3>
+                            <p
+                                className="text-gray-600 mb-6"
+                                data-aos="fade-up"
+                                data-aos-duration="800"
+                            >
+                                {kost2.deskripsi}
+                            </p>
+                        </div>
+                        <div className="flex gap-4 md:flex-row flex-col">
+                            {/* Facilities */}
+                            <div className="mt-8">
+                                <h3
+                                    className="text-xl font-semibold text-[#003459] mb-4"
+                                    data-aos="fade-up"
+                                    data-aos-duration="800"
+                                >
+                                    Fasilitas
+                                </h3>
+                                <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+                                    {kost2.facilities.map((facility, index) => (
+                                        <div
+                                            key={index}
+                                            className="flex items-center bg-[#b8f2ff]/30 p-3 rounded-lg"
+                                            data-aos="fade-up"
+                                            data-aos-duration="800"
+                                        >
+                                            <facility.icon
+                                                size={20}
+                                                className="text-[#248da8] mr-2"
+                                            />
+                                            <span className="text-[#003459]">
+                                                {facility.name}
+                                            </span>
+                                        </div>
+                                    ))}
+                                </div>
+                            </div>
+                            {/* Google Maps Embed */}
+                            <div className="mt-6 flex-1">
+                                <h3
+                                    className="text-xl font-semibold text-[#003459] mb-4"
+                                    data-aos="fade-up"
+                                    data-aos-duration="800"
+                                >
+                                    Lokasi
+                                </h3>
+                                <div
+                                    className="relative pb-[56.25%] h-0 rounded-xl overflow-hidden shadow-lg"
+                                    data-aos="fade-up"
+                                    data-aos-duration="800"
+                                >
+                                    <iframe
+                                        src={`https://maps.google.com/maps?q=${encodeURIComponent(
+                                            kost2.alamat
+                                        )}&output=embed`}
+                                        className="absolute top-0 left-0 w-full h-full border-0"
+                                        allowFullScreen
+                                        loading="lazy"
+                                    />
+                                </div>
+                                <div className="mt-3">
+                                    <a
+                                        href={
+                                            kost2.alamat?.replace(
                                                 "embed",
                                                 "view"
                                             ) || "#"
