@@ -297,6 +297,7 @@ export default function Home(props) {
                 data-aos="fade-up"
                 data-aos-duration="800"
             >
+                <h1 className="text-4xl font-bold  mb-2">Rekomendasi Kost</h1>
                 <OwlCarousel className="owl-theme" {...settings}>
                     {premium.length > 0 ? (
                         premium.map((value, index) => (
@@ -312,12 +313,6 @@ export default function Home(props) {
                         </div>
                     )}
                 </OwlCarousel>
-
-                <div className="">
-                    <a href="#" className="hover:text-blue-400">
-                        Lihat Semua Rekomendasi
-                    </a>
-                </div>
             </div>
 
             <hr className="border-2 border-slate-400 my-6" />
