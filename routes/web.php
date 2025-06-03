@@ -18,9 +18,9 @@ Route::get('/kos', function () {
    return Inertia::render('Kos');
 });
 
-// Route::get('/premium', function () {
-//    return Inertia::render('Premium/Premium1');
-// });
+Route::get('/premium', function () {
+   return Inertia::render('Premium/Premium1');
+});
 // Route::get('/premium2', function () {
 //    return Inertia::render('Premium/Premium2');
 // });

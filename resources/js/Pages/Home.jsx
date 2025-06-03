@@ -186,7 +186,7 @@ export default function Home(props) {
                 {/* Hero Content */}
                 <div className="flex-1 grid grid-cols-1 md:grid-cols-3 items-center px-4 md:px-10 py-6 gap-6">
                     {/* Bagian Kiri */}
-                    <div className="md:col-span-2 grid grid-cols-1 md:grid-cols-5 items-center gap-4">
+                    <div className="md:col-span-3 grid grid-cols-1 md:grid-cols-5 items-center gap-4">
                         <div
                             className="md:col-span-2 flex justify-center"
                             data-aos="fade-right"
@@ -219,7 +219,7 @@ export default function Home(props) {
                     </div>
 
                     {/* Bagian Kanan */}
-                    <div
+                    {/* <div
                         className="md:col-span-1 md:flex flex-col items-center text-center gap-3 hidden"
                         data-aos="fade-left"
                         data-aos-duration="800"
@@ -260,7 +260,7 @@ export default function Home(props) {
                                 </button>
                             </form>
                         </div>
-                    </div>
+                    </div> */}
                 </div>
             </div>
 
@@ -354,7 +354,7 @@ export default function Home(props) {
 
             {/*    <!-- Bagian 4  */}
 
-            <div className="px-3 md:px-10 flex flex-col gap-6">
+            <div className="px-3 md:px-10 flex flex-col gap-6 mb-10">
                 <div
                     className="flex flex-col md:flex-row md:items-center md:justify-between gap-4"
                     data-aos="fade-up"
@@ -442,9 +442,9 @@ export default function Home(props) {
                     </div>
                 </div>
             </div>
-            <hr className="border-2 border-slate-400 my-6" />
+            {/* <hr className="border-2 border-slate-400 my-6" /> */}
             {/*{/* <!-- Bagian 5  */}
-            <div className="px-4 md:px-10 flex flex-col gap-6 mb-10">
+            {/* <div className="px-4 md:px-10 flex flex-col gap-6 mb-10">
                 <p
                     className="font-bold text-4xl"
                     data-aos="fade-up"
@@ -463,7 +463,7 @@ export default function Home(props) {
                         </div>
                     )}
                 </div>
-            </div>
+            </div> */}
             <Footer></Footer>
 
             {/* <div className="h-screen"></div> */}

@@ -28,6 +28,7 @@ const kostData = [
         price: 1200000,
         type: "Putri",
         remaining: 3,
+        image_landing: "/img/gambar/kos.jpeg",
         alamat: "Jl. Cilubang, RT.02/RW.08, Balungbangjaya, Kec. Bogor Bar., Kota Bogor, Jawa Barat",
         images: [
             "/img/gambar/kos.jpeg",
@@ -70,7 +71,7 @@ const KostLandingPage = () => {
             {/* Background Image with Overlay */}
             <div className="absolute inset-0 z-0">
                 <img
-                    src={kost.images[0]}
+                    src={kost.image_landing}
                     alt="Kos Hero"
                     className="w-full h-full object-cover"
                 />
