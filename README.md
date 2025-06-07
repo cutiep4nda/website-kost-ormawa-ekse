@@ -91,6 +91,7 @@ sudo chown -R www-data:www-data storage/
 sudo chown -R www-data:www-data bootstrap/cache
 sudo chmod -R 775 storage/
 sudo chmod -R 775 bootstrap/cache
+php artisna storage:link
 npm install
 npm run build
 ```
