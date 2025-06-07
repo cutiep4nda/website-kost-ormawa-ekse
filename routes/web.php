@@ -21,6 +21,18 @@ Route::get('/kos', function () {
 Route::get('/premium', function () {
    return Inertia::render('Premium/Premium1');
 });
+Route::get('/tasima', function () {
+   return Inertia::render('Premium/Tasima');
+});
+Route::get('/wisma-rosa', function () {
+   return Inertia::render('Premium/WismaRosa');
+});
+Route::get('/skena', function () {
+   return Inertia::render('Premium/Skena');
+});
+Route::get('/syakura', function () {
+   return Inertia::render('Premium/Syakura');
+});
 // Route::get('/premium2', function () {
 //    return Inertia::render('Premium/Premium2');
 // });
