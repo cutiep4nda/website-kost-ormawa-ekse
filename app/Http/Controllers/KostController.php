@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Kost;
 use App\Models\Pemilik;
-use App\Models\daerah;
+use App\Models\Daerah;
 use App\Models\Jenis;
 
 use Illuminate\Http\Request;
