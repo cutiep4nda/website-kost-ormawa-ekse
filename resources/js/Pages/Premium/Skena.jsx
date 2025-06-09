@@ -110,7 +110,7 @@ const KostLandingPage = () => {
                         {kost1.name}
                     </h1>
                     <p
-                        className="text-lg md:text-xl mb-8 font-light max-w-2xl mx-auto"
+                        className="text-md md:text-xl mb-8 font-light max-w-2xl mx-auto"
                         data-aos="fade-up"
                         data-aos-duration="800"
                         data-aos-delay="100"

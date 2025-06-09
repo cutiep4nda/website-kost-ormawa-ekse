@@ -205,7 +205,7 @@ const KostLandingPage = () => {
                         Wisma Rosa
                     </h1>
                     <p
-                        className="text-xl md:text-2xl mb-8 font-light max-w-2xl mx-auto"
+                        className="text-md md:text-2xl mb-8 font-light max-w-2xl mx-auto"
                         data-aos="fade-up"
                         data-aos-duration="800"
                         data-aos-delay="100"

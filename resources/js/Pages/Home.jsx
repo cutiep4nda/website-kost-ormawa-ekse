@@ -150,7 +150,7 @@ export default function Home(props) {
             daerah: "Cibanteng",
             jenis: "Campur",
             fasilitas: "KM Dalam, Wifi, AC, CCTV",
-            link: "tasima",
+            link: "/tasima",
         },
         {
             id: 2,
@@ -177,7 +177,16 @@ export default function Home(props) {
             jenis: "Putra",
             daerah: "Balio",
             fasilitas: "Meja, Kasur, Kipas Angin, CCTV",
-            link: "wisma-rosa",
+            link: "/wisma-rosa",
+        },
+        {
+            id: 5,
+            nama: "SKS Living",
+            gambar: "images/premium/sks/sks1.jpg",
+            jenis: "Campur",
+            daerah: "Cikarawang",
+            fasilitas: "Kasur, Wifi, AC, CCTV",
+            link: "/sks-living",
         },
     ];
 

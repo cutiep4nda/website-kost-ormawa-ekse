@@ -21,6 +21,8 @@ Route::get('/kos', function () {
 Route::get('/premium', function () {
    return Inertia::render('Premium/Premium1');
 });
+
+// KOS PREMIUM
 Route::get('/tasima', function () {
    return Inertia::render('Premium/Tasima');
 });
@@ -32,6 +34,9 @@ Route::get('/skena', function () {
 });
 Route::get('/syakura', function () {
    return Inertia::render('Premium/Syakura');
+});
+Route::get('/sks-living', function () {
+   return Inertia::render('Premium/Sks');
 });
 // Route::get('/premium2', function () {
 //    return Inertia::render('Premium/Premium2');

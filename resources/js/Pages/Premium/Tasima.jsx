@@ -30,9 +30,9 @@ const kostData = [
         location: "Jl. Raya Cibanteng No.122",
         wa: "6287770177647",
         daerah: "Cibanteng",
-        price: 13000000,
+        price: 14000000,
         type: "Campur",
-        remaining: 40,
+        remaining: 20,
         image_landing:
             "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
         alamat: "Jl. Raya Cibanteng Blok Menara No.122, RT.3/RW.1, Cihideung Ilir, Kec. Ciampea, Kabupaten Bogor, Jawa Barat 16620",
@@ -66,7 +66,7 @@ const kostData = [
         location: "Jl. Raya Cibanteng No.122",
         wa: "6287770177647",
         daerah: "Cibanteng",
-        price: 1100000,
+        price: 12000000,
         type: "Campur",
         remaining: 20,
         image_landing:
@@ -103,8 +103,44 @@ const kostData = [
         wa: "6287770177647",
         daerah: "Cibanteng",
         price: 9000000,
+        type: "Putra",
+        remaining: 8,
+        image_landing:
+            "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
+        alamat: "Jl. Raya Cibanteng Blok Menara No.122, RT.3/RW.1, Cihideung Ilir, Kec. Ciampea, Kabupaten Bogor, Jawa Barat 16620",
+        images: [
+            "images/premium/tasima/tasimaadaro5.jpg",
+            "images/premium/tasima/tasimaadaro6.jpg",
+            "images/premium/tasima/tasimaadaro7.jpg",
+            "images/premium/tasima/tasimaadaro8.jpg",
+        ],
+        desk_singkat:
+            "Tempat tinggal nyaman dan aman dengan fasilitas lengkap, pilihan AC atau non-AC sesuai kebutuhan Anda.",
+        deskripsi:
+            "Tasima Adaro menyediakan fasilitas dasar yang lengkap, termasuk kamar mandi dalam, tempat tidur, lemari, meja, dan kursi. Penghuni juga mendapatkan akses WiFi, listrik, serta keamanan yang terjamin dengan adanya CCTV dan penjaga. Tersedia area parkir untuk kendaraan pribadi.",
+        facilities: [
+            { name: "Kasur", icon: FaBed },
+            { name: "Lemari", icon: FaBox }, // FaBox mewakili storage/lemari
+            { name: "Cermin", icon: GiMirrorMirror },
+            { name: "WiFi", icon: FaWifi },
+            { name: "Kamar Mandi Dalam", icon: FaBath },
+            // { name: "AC", icon: FaSnowflake },
+            { name: "Kloset", icon: FaToilet },
+            { name: "Shower", icon: FaShower },
+            { name: "Parkir Luas", icon: FaParking },
+            { name: "CCTV", icon: LuCctv },
+            { name: "Kulkas", icon: RiFridgeFill },
+        ],
+    },
+    {
+        id: 3,
+        name: "Tasima Adaro",
+        location: "Jl. Raya Cibanteng No.122",
+        wa: "6287770177647",
+        daerah: "Cibanteng",
+        price: 9000000,
         type: "Campur",
-        remaining: 20,
+        remaining: 4,
         image_landing:
             "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
         alamat: "Jl. Raya Cibanteng Blok Menara No.122, RT.3/RW.1, Cihideung Ilir, Kec. Ciampea, Kabupaten Bogor, Jawa Barat 16620",
@@ -174,7 +210,7 @@ const KostLandingPage = () => {
                         Kos Tasima
                     </h1>
                     <p
-                        className="text-xl md:text-2xl mb-8 font-light max-w-2xl mx-auto"
+                        className="text-md md:text-2xl mb-8 font-light max-w-2xl mx-auto"
                         data-aos="fade-up"
                         data-aos-duration="800"
                         data-aos-delay="100"
@@ -260,6 +296,7 @@ export default function Tasima() {
     const kost1 = kostData[0];
     const kost2 = kostData[1];
     const kost3 = kostData[2];
+    const kost4 = kostData[3];
 
     const nextImage1 = () => {
         setCurrentImageIndex((prev) =>
@@ -292,6 +329,17 @@ export default function Tasima() {
     const prevImage3 = () => {
         setCurrentImageIndex((prev) =>
             prev === 0 ? kost3.images.length - 1 : prev - 1
+        );
+    };
+    const nextImage4 = () => {
+        setCurrentImageIndex((prev) =>
+            prev === kost4.images.length - 1 ? 0 : prev + 1
+        );
+    };
+
+    const prevImage4 = () => {
+        setCurrentImageIndex((prev) =>
+            prev === 0 ? kost4.images.length - 1 : prev - 1
         );
     };
 
@@ -907,6 +955,213 @@ export default function Tasima() {
                                     <a
                                         href={
                                             kost3.alamat?.replace(
+                                                "embed",
+                                                "view"
+                                            ) || "#"
+                                        }
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="text-[#248da8] hover:text-[#16cdd8] flex items-center"
+                                    >
+                                        <FaExternalLinkAlt className="mr-2" />
+                                        Buka di Google Maps
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+
+            <main className="container mx-auto px-4 pt-8">
+                {/* Hero Section with Image Carousel */}
+                <div className="relative rounded-2xl overflow-hidden shadow-xl mb-8 bg-white border-birutua1 border-[1px]">
+                    <div className="relative h-96 md:h-[500px]">
+                        <img
+                            src={kost4.images[currentImageIndex]}
+                            alt={`${kost4.name} view ${currentImageIndex + 1}`}
+                            className="w-full h-full object-cover"
+                            data-aos="fade-up"
+                            data-aos-duration="800"
+                        />
+
+                        <button
+                            onClick={prevImage4}
+                            className="absolute left-4 top-1/2 -translate-y-1/2 bg-white/80 p-2 rounded-full text-[#003459] hover:bg-white transition"
+                        >
+                            <IoChevronBackOutline size={24} />
+                        </button>
+
+                        <button
+                            onClick={nextImage4}
+                            className="absolute right-4 top-1/2 -translate-y-1/2 bg-white/80 p-2 rounded-full text-[#003459] hover:bg-white transition"
+                        >
+                            <IoChevronForwardOutline size={24} />
+                        </button>
+
+                        <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex space-x-2">
+                            {kost2.images.map((_, index) => (
+                                <button
+                                    key={index}
+                                    className={`w-3 h-3 rounded-full ${
+                                        index === currentImageIndex
+                                            ? "bg-[#16cdd8]"
+                                            : "bg-white/60"
+                                    }`}
+                                    onClick={() => setCurrentImageIndex(index)}
+                                />
+                            ))}
+                        </div>
+                    </div>
+
+                    {/* Kos Information */}
+                    <div className="p-6">
+                        <div className="flex justify-between items-start mb-4">
+                            <div>
+                                <h1
+                                    className="text-3xl font-bold text-[#003459]"
+                                    data-aos="fade-up"
+                                    data-aos-duration="800"
+                                >
+                                    {kost4.name}
+                                </h1>
+                                <div
+                                    className="flex items-center mt-2 text-gray-600"
+                                    data-aos="fade-up"
+                                    data-aos-duration="800"
+                                >
+                                    <FaMapMarkerAlt
+                                        size={16}
+                                        className="mr-1 text-[#248da8]"
+                                    />
+                                    <span>{kost4.alamat}</span>
+                                </div>
+                            </div>
+                            <div
+                                className="bg-[#16cdd8]/10 px-4 py-2 rounded-lg"
+                                data-aos="fade-up"
+                                data-aos-duration="800"
+                            >
+                                <div className="text-[#003459] font-bold text-xl">
+                                    {kost4.type}
+                                </div>
+                                <div className="text-[#248da8] text-sm">
+                                    Sisa {kost4.remaining} kamar
+                                </div>
+                            </div>
+                        </div>
+
+                        <div
+                            className="flex items-center mb-6"
+                            data-aos="fade-up"
+                            data-aos-duration="800"
+                        >
+                            <div className="flex items-center text-yellow-500 mr-2">
+                                <FaLocationArrow size={18} />
+                                <span className="ml-2 font-semibold text-[#003459]">
+                                    {kost4.daerah}
+                                </span>
+                            </div>
+                        </div>
+
+                        <hr
+                            className="my-6 border-gray-200"
+                            data-aos="fade-up"
+                            data-aos-duration="800"
+                        />
+
+                        {/* Price & deskripsi */}
+                        <div className="mb-8">
+                            <div
+                                className="flex justify-between items-center mb-4"
+                                data-aos="fade-up"
+                                data-aos-duration="800"
+                            >
+                                <h2 className="text-2xl font-bold text-[#003459]">
+                                    Rp {kost4.price.toLocaleString("id-ID")}
+                                    <span className="text-gray-500 text-lg font-normal">
+                                        /tahun
+                                    </span>
+                                </h2>
+                                <a
+                                    className="bg-[#248da8] text-white px-6 py-3 rounded-lg hover:bg-[#16cdd8] transition font-semibold"
+                                    href={`https://wa.me/${kost4.wa}`}
+                                >
+                                    Pesan Sekarang
+                                </a>
+                            </div>
+
+                            <h3
+                                className="text-xl font-semibold text-[#003459] mb-2"
+                                data-aos="fade-up"
+                                data-aos-duration="800"
+                            >
+                                Deskripsi
+                            </h3>
+                            <p
+                                className="text-gray-600 mb-6"
+                                data-aos="fade-up"
+                                data-aos-duration="800"
+                            >
+                                {kost4.deskripsi}
+                            </p>
+                        </div>
+                        <div className="flex gap-4 md:flex-row flex-col">
+                            {/* Facilities */}
+                            <div className="mt-8">
+                                <h3
+                                    className="text-xl font-semibold text-[#003459] mb-4"
+                                    data-aos="fade-up"
+                                    data-aos-duration="800"
+                                >
+                                    Fasilitas
+                                </h3>
+                                <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+                                    {kost4.facilities.map((facility, index) => (
+                                        <div
+                                            key={index}
+                                            className="flex items-center bg-[#b8f2ff]/30 p-3 rounded-lg"
+                                            data-aos="fade-up"
+                                            data-aos-duration="800"
+                                        >
+                                            <facility.icon
+                                                size={20}
+                                                className="text-[#248da8] mr-2"
+                                            />
+                                            <span className="text-[#003459]">
+                                                {facility.name}
+                                            </span>
+                                        </div>
+                                    ))}
+                                </div>
+                            </div>
+                            {/* Google Maps Embed */}
+                            <div className="mt-6 flex-1">
+                                <h3
+                                    className="text-xl font-semibold text-[#003459] mb-4"
+                                    data-aos="fade-up"
+                                    data-aos-duration="800"
+                                >
+                                    Lokasi
+                                </h3>
+                                <div
+                                    className="relative pb-[56.25%] h-0 rounded-xl overflow-hidden shadow-lg"
+                                    data-aos="fade-up"
+                                    data-aos-duration="800"
+                                >
+                                    <iframe
+                                        src={`https://maps.google.com/maps?q=${encodeURIComponent(
+                                            kost4.alamat
+                                        )}&output=embed`}
+                                        className="absolute top-0 left-0 w-full h-full border-0"
+                                        allowFullScreen
+                                        loading="lazy"
+                                    />
+                                </div>
+                                <div className="mt-3">
+                                    <a
+                                        href={
+                                            kost4.alamat?.replace(
                                                 "embed",
                                                 "view"
                                             ) || "#"
