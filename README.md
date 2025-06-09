@@ -70,6 +70,78 @@ Untuk memberikan 'keterangan' ke perubahan pada branch yang aktif saat ini
 git commit -m "Keterangan"
 ```
 
+### Installation on Ormawaekse Server
+```
+git clone https://github.com/cutiep4nda/website-kost-ormawa-ekse.git
+composer install --no-dev --optimize-autoloader
+cp .env.example .env
+nano .env #edit this file properly
+php artisan key:generate
+mysql
+CREATE DATABASE your_database_name CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+CREATE USER 'your_database_user'@'localhost' IDENTIFIED BY 'your_database_user_password';
+GRANT ALL PRIVILEGES ON your_database_name.* TO 'your_database_user'@'localhost';
+FLUSH PRIVILEGES;
+EXIT;
+php artisan migrate --force
+php artisan db:seed
+php artisan optimize:clear # Clears all caches
+php artisan config:cache    # Caches configuration for faster loading
+sudo chown -R www-data:www-data storage/
+sudo chown -R www-data:www-data bootstrap/cache
+sudo chmod -R 775 storage/
+sudo chmod -R 775 bootstrap/cache
+php artisna storage:link
+npm install
+npm run build
+```
+
+### Configure Domain
+```
+sudo nano /etc/nginx/sites-available/your-domain.com
+```
+add this:
+```
+server {
+    listen 80;
+    listen [::]:80;
+    server_name your_domain.com www.your_domain.com; # Replace with your domain name or VPS IP
+    root /path/to/your/laravel-project/public; # IMPORTANT: Point to the public directory
+
+    add_header X-Frame-Options "SAMEORIGIN";
+    add_header X-Content-Type-Options "nosniff";
+
+    index index.php index.html index.htm;
+
+    charset utf-8;
+
+    location / {
+        try_files $uri $uri/ /index.php?$query_string;
+    }
+
+    location = /favicon.ico { access_log off; log_not_found off; }
+    location = /robots.txt { access_log off; log_not_found off; }
+
+    error_page 404 /index.php;
+
+    location ~ \.php$ {
+        fastcgi_pass unix:/var/run/php/php8.2-fpm.sock; # Ensure this matches your PHP-FPM version
+        fastcgi_param SCRIPT_FILENAME $realpath_root$fastcgi_script_name;
+        include fastcgi_params;
+    }
+
+    location ~ /\.(?!well-known).* {
+        deny all;
+    }
+}
+```
+```
+sudo ln -s /etc/nginx/sites-available/your-domain.com /etc/nginx/sites-enabled/
+sudo nginx -t
+sudo systemctl reload nginx
+```
+
+
 ## NOTE
 - Pada repository GitHub ini, hanya ada 1 branch (main)
 

@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\daerah;
+use App\Models\Daerah;
 use App\Models\Kost;
 use Inertia\Inertia;
 

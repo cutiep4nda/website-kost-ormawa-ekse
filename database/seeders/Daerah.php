@@ -12,28 +12,28 @@ class Daerah extends Seeder
      */
     public function run(): void
     {
-        \App\Models\daerah::create([
+        \App\Models\Daerah::create([
             'daerah' => 'Balebak'
         ]);
-        \App\Models\daerah::create([
+        \App\Models\Daerah::create([
             'daerah' => 'Balio'
         ]);
-        \App\Models\daerah::create([
+        \App\Models\Daerah::create([
             'daerah' => 'Perwira'
         ]);
-        \App\Models\daerah::create([
+        \App\Models\Daerah::create([
             'daerah' => 'Bara'
         ]);
-        \App\Models\daerah::create([
+        \App\Models\Daerah::create([
             'daerah' => 'Bateng'
         ]);
-        \App\Models\daerah::create([
+        \App\Models\Daerah::create([
             'daerah' => 'Cibanteng'
         ]);
-        \App\Models\daerah::create([
+        \App\Models\Daerah::create([
             'daerah' => 'Cangkurawok'
         ]);
-        \App\Models\daerah::create([
+        \App\Models\Daerah::create([
             'daerah' => 'Dramaga Cantik'
         ]);
     }
