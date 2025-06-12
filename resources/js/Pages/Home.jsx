@@ -172,7 +172,7 @@ export default function Home(props) {
         },
         {
             id: 4,
-            gambar: "https://images.unsplash.com/photo-1484154218962-a197022b5858?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
+            gambar: "images/premium/wisma-rosa/a1.jpeg",
             nama: "Wisma Rosa",
             jenis: "Putra",
             daerah: "Balio",

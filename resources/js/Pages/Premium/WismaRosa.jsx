@@ -36,13 +36,17 @@ const kostData = [
         price: 850000,
         type: "Putra",
         remaining: 3,
-        image_landing: "images/premium/wisma-rosa/d1.MOV",
+        image_landing: "images/premium/wisma-rosa/a1.jpeg",
         alamat: "Jl. Sawah Baru No.14, RT.02/RW.09, Balungbangjaya, Kec. Bogor Bar., Kota Bogor, Jawa Barat 16116",
         images: [
-            "images/premium/wisma-rosa/a1.MOV",
-            "images/premium/wisma-rosa/a2.MOV",
-            "images/premium/wisma-rosa/a3.MOV",
-            "images/premium/wisma-rosa/a4.MOV",
+            "images/premium/wisma-rosa/a1.jpeg",
+            "images/premium/wisma-rosa/a2.jpeg",
+            "images/premium/wisma-rosa/a3.jpeg",
+            "images/premium/wisma-rosa/a4.jpeg",
+            "images/premium/wisma-rosa/a5.jpeg",
+            "images/premium/wisma-rosa/a6.jpeg",
+            "images/premium/wisma-rosa/a7.jpeg",
+            "images/premium/wisma-rosa/a8.jpeg",
         ],
         desk_singkat:
             "Kos putra strategis dekat IPB, hanya 5 menit dari kampus. Dilengkapi rooftop, dua dapur, mushola, WiFi, listrik, air, dan keamanan 24 jam dengan penjaga serta CCTV. Nyaman dan cocok untuk mahasiswa.",
@@ -73,10 +77,14 @@ const kostData = [
         image_landing: "images/premium/wisma-rosa/",
         alamat: "Jl. Sawah Baru No.14, RT.02/RW.09, Balungbangjaya, Kec. Bogor Bar., Kota Bogor, Jawa Barat 16116",
         images: [
-            "images/premium/wisma-rosa/a1.MOV",
-            "images/premium/wisma-rosa/a2.MOV",
-            "images/premium/wisma-rosa/a3.MOV",
-            "images/premium/wisma-rosa/a4.MOV",
+            "images/premium/wisma-rosa/a1.jpeg",
+            "images/premium/wisma-rosa/a2.jpeg",
+            "images/premium/wisma-rosa/a3.jpeg",
+            "images/premium/wisma-rosa/a4.jpeg",
+            "images/premium/wisma-rosa/a5.jpeg",
+            "images/premium/wisma-rosa/a6.jpeg",
+            "images/premium/wisma-rosa/a7.jpeg",
+            "images/premium/wisma-rosa/a8.jpeg",
         ],
         desk_singkat:
             "Kos putra strategis dekat IPB, hanya 5 menit dari kampus. Dilengkapi rooftop, dua dapur, mushola, WiFi, listrik, air, dan keamanan 24 jam dengan penjaga serta CCTV. Nyaman dan cocok untuk mahasiswa.",
@@ -104,13 +112,17 @@ const kostData = [
         price: 1100000,
         type: "Putra",
         remaining: 3,
-        image_landing: "images/premium/wisma-rosa/d1.MOV",
+        image_landing: "images/premium/wisma-rosa/a1.jpeg",
         alamat: "Jl. Sawah Baru No.14, RT.02/RW.09, Balungbangjaya, Kec. Bogor Bar., Kota Bogor, Jawa Barat 16116",
         images: [
-            "images/premium/wisma-rosa/a1.MOV",
-            "images/premium/wisma-rosa/a2.MOV",
-            "images/premium/wisma-rosa/a3.MOV",
-            "images/premium/wisma-rosa/a4.MOV",
+            "images/premium/wisma-rosa/a1.jpeg",
+            "images/premium/wisma-rosa/a2.jpeg",
+            "images/premium/wisma-rosa/a3.jpeg",
+            "images/premium/wisma-rosa/a4.jpeg",
+            "images/premium/wisma-rosa/a5.jpeg",
+            "images/premium/wisma-rosa/a6.jpeg",
+            "images/premium/wisma-rosa/a7.jpeg",
+            "images/premium/wisma-rosa/a8.jpeg",
         ],
         desk_singkat:
             "Kos putra strategis dekat IPB, hanya 5 menit dari kampus. Dilengkapi rooftop, dua dapur, mushola, WiFi, listrik, air, dan keamanan 24 jam dengan penjaga serta CCTV. Nyaman dan cocok untuk mahasiswa.",
@@ -141,10 +153,14 @@ const kostData = [
         image_landing: "images/premium/wisma-rosa/d1.MOV",
         alamat: "Jl. Sawah Baru No.14, RT.02/RW.09, Balungbangjaya, Kec. Bogor Bar., Kota Bogor, Jawa Barat 16116",
         images: [
-            "images/premium/wisma-rosa/a1.MOV",
-            "images/premium/wisma-rosa/a2.MOV",
-            "images/premium/wisma-rosa/a3.MOV",
-            "images/premium/wisma-rosa/a4.MOV",
+            "images/premium/wisma-rosa/a1.jpeg",
+            "images/premium/wisma-rosa/a2.jpeg",
+            "images/premium/wisma-rosa/a3.jpeg",
+            "images/premium/wisma-rosa/a4.jpeg",
+            "images/premium/wisma-rosa/a5.jpeg",
+            "images/premium/wisma-rosa/a6.jpeg",
+            "images/premium/wisma-rosa/a7.jpeg",
+            "images/premium/wisma-rosa/a8.jpeg",
         ],
         desk_singkat:
             "Kos putra strategis dekat IPB, hanya 5 menit dari kampus. Dilengkapi rooftop, dua dapur, mushola, WiFi, listrik, air, dan keamanan 24 jam dengan penjaga serta CCTV. Nyaman dan cocok untuk mahasiswa.",
@@ -187,7 +203,7 @@ const KostLandingPage = () => {
             {/* Background Image with Overlay */}
             <div className="absolute inset-0 z-0">
                 <img
-                    src="images/premium/wisma-rosa/a1.jpg"
+                    src="images/premium/wisma-rosa/a1.jpeg"
                     alt="Kos Hero"
                     className="w-full h-full object-cover"
                 />

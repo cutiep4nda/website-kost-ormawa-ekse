@@ -15,6 +15,9 @@ import {
     FaLocationArrow,
 } from "react-icons/fa";
 import { GiMirrorMirror } from "react-icons/gi";
+import { MdOutlineTableRestaurant } from "react-icons/md";
+import { MdOutlineChairAlt } from "react-icons/md";
+
 import { RiFridgeFill } from "react-icons/ri";
 import { LuCctv } from "react-icons/lu";
 import { IoIosSearch } from "react-icons/io";
@@ -54,7 +57,9 @@ const kostData = [
             { name: "Kamar Mandi Dalam", icon: FaBath },
             { name: "AC", icon: FaSnowflake },
             { name: "Kloset", icon: FaToilet },
-            { name: "Shower", icon: FaShower },
+            { name: "Meja Belajar", icon: MdOutlineTableRestaurant },
+            { name: "Kursi", icon: MdOutlineChairAlt },
+            // { name: "Shower", icon: FaShower },
             { name: "Parkir Luas", icon: FaParking },
             { name: "CCTV", icon: LuCctv },
             { name: "Kulkas", icon: RiFridgeFill },
@@ -87,10 +92,13 @@ const kostData = [
             { name: "Lemari", icon: FaBox }, // FaBox mewakili storage/lemari
             { name: "Cermin", icon: GiMirrorMirror },
             { name: "WiFi", icon: FaWifi },
+            { name: "Meja Belajar", icon: MdOutlineTableRestaurant },
+            { name: "Kursi", icon: MdOutlineChairAlt },
             { name: "Kamar Mandi Dalam", icon: FaBath },
             // { name: "AC", icon: FaSnowflake },
             { name: "Kloset", icon: FaToilet },
-            { name: "Shower", icon: FaShower },
+
+            // { name: "Shower", icon: FaShower },
             { name: "Parkir Luas", icon: FaParking },
             { name: "CCTV", icon: LuCctv },
             { name: "Kulkas", icon: RiFridgeFill },
@@ -122,11 +130,14 @@ const kostData = [
             { name: "Kasur", icon: FaBed },
             { name: "Lemari", icon: FaBox }, // FaBox mewakili storage/lemari
             { name: "Cermin", icon: GiMirrorMirror },
+            { name: "Meja Belajar", icon: MdOutlineTableRestaurant },
+            { name: "Kursi", icon: MdOutlineChairAlt },
+
             { name: "WiFi", icon: FaWifi },
             { name: "Kamar Mandi Dalam", icon: FaBath },
             // { name: "AC", icon: FaSnowflake },
             { name: "Kloset", icon: FaToilet },
-            { name: "Shower", icon: FaShower },
+            // { name: "Shower", icon: FaShower },
             { name: "Parkir Luas", icon: FaParking },
             { name: "CCTV", icon: LuCctv },
             { name: "Kulkas", icon: RiFridgeFill },
@@ -159,6 +170,8 @@ const kostData = [
             { name: "Lemari", icon: FaBox }, // FaBox mewakili storage/lemari
             { name: "Cermin", icon: GiMirrorMirror },
             { name: "WiFi", icon: FaWifi },
+            { name: "Meja Belajar", icon: MdOutlineTableRestaurant },
+            { name: "Kursi", icon: MdOutlineChairAlt },
             { name: "Kamar Mandi Dalam", icon: FaBath },
             // { name: "AC", icon: FaSnowflake },
             { name: "Kloset", icon: FaToilet },
