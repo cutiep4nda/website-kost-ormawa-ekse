@@ -149,7 +149,7 @@ export default function Home(props) {
             nama: "Kost Tasima",
             daerah: "Cibanteng",
             jenis: "Campur",
-            fasilitas: "KM Dalam, Wifi, AC, CCTV",
+            fasilitas: "KM Dalam, Wifi, AC, CCTV, Kursi, Meja",
             link: "/tasima",
         },
         {
